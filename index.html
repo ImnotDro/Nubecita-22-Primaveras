@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#f7f4fb" />
+<title>Nubecita 22 Primaveras</title>
+
+<style>
+  :root{
+    --bg:#f7f4fb;
+    --card:#ffffff;
+    --text:#241c2b;
+    --muted:#756d7d;
+    --line:#e9e1ef;
+    --accent:#7c5cff;
+    --accent-soft:#efe9ff;
+    --danger:#d84b6b;
+    --ok:#2d9b73;
+    --shadow:0 16px 45px rgba(71,48,88,.10);
+  }
+
+  *{box-sizing:border-box}
+
+  body{
+    margin:0;
+    font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    background:linear-gradient(135deg,#fbf8ff 0%,#f3eef8 100%);
+    color:var(--text);
+    min-height:100vh;
+  }
+
+  .wrap{
+    max-width:1050px;
+    margin:auto;
+    padding:28px 18px 60px;
+  }
+
+  .hero,.card{
+    background:rgba(255,255,255,.88);
+    border:1px solid rgba(255,255,255,.8);
+    border-radius:24px;
+    box-shadow:var(--shadow);
+  }
+
+  .hero{
+    padding:28px;
+    margin-bottom:18px;
+  }
+
+  .card{
+    padding:22px;
+    margin-top:18px;
+  }
+
+  .tag{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 12px;
+    border-radius:999px;
+    background:var(--accent-soft);
+    color:#5d43c4;
+    font-weight:800;
+    font-size:13px;
+    margin-bottom:12px;
+  }
+
+  h1{
+    margin:0 0 8px;
+    font-size:clamp(30px,5vw,52px);
+    letter-spacing:-1.5px;
+  }
+
+  h2{margin:0 0 14px}
+
+  p{
+    color:var(--muted);
+    line-height:1.55;
+  }
+
+  .topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+    flex-wrap:wrap;
+  }
+
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:14px;
+  }
+
+  .grid3{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:14px;
+  }
+
+  @media(max-width:760px){
+    .grid,.grid3{grid-template-columns:1fr}
+  }
+
+  label{
+    display:block;
+    font-size:13px;
+    font-weight:800;
+    margin-bottom:7px;
+  }
+
+  input,select,textarea{
+    width:100%;
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:12px 13px;
+    font:inherit;
+    background:#fff;
+    color:var(--text);
+    outline:none;
+  }
+
+  textarea{
+    min-height:86px;
+    resize:vertical;
+  }
+
+  input:focus,select:focus,textarea:focus{
+    border-color:#b892ff;
+    box-shadow:0 0 0 4px rgba(124,92,255,.10);
+  }
+
+  button{
+    border:0;
+    border-radius:14px;
+    padding:12px 16px;
+    font:inherit;
+    font-weight:800;
+    cursor:pointer;
+    background:var(--accent);
+    color:white;
+  }
+
+  button.secondary{
+    background:#eee8f6;
+    color:#4a3b59;
+  }
+
+  button.danger{
+    background:#ffe8ee;
+    color:#a62e4b;
+  }
+
+  button.ghost{
+    background:transparent;
+    color:var(--muted);
+    border:1px solid var(--line);
+  }
+
+  .actions{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-top:16px;
+  }
+
+  .hidden{display:none!important}
+
+  .stats{
+    display:grid;
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    gap:12px;
+    margin-top:16px;
+  }
+
+  @media(max-width:800px){
+    .stats{grid-template-columns:repeat(2,1fr)}
+  }
+
+  .stat{
+    padding:16px;
+    border-radius:18px;
+    background:#faf8fd;
+    border:1px solid var(--line);
+  }
+
+  .stat b{
+    display:block;
+    font-size:24px;
+    margin-top:5px;
+  }
+
+  .small{
+    font-size:12px;
+    color:var(--muted);
+  }
+
+  .notice{
+    padding:12px 14px;
+    border-radius:14px;
+    background:#f6f1ff;
+    color:#5e4e73;
+    font-size:13px;
+    margin-top:12px;
+  }
+
+  .error{
+    color:#a62946;
+    font-weight:800;
+    font-size:13px;
+    margin-top:10px;
+  }
+
+  table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:14px;
+  }
+
+  th,td{
+    padding:12px 10px;
+    border-bottom:1px solid var(--line);
+    text-align:left;
+    vertical-align:top;
+  }
+
+  th{
+    font-size:12px;
+    color:var(--muted);
+    text-transform:uppercase;
+    letter-spacing:.05em;
+  }
+
+  .pill{
+    display:inline-block;
+    padding:5px 8px;
+    border-radius:999px;
+    font-size:11px;
+    font-weight:800;
+    background:#f0ebf5;
+  }
+
+  .pill.alta{background:#ffe5eb;color:#9f2946}
+  .pill.media{background:#fff2d8;color:#8c6214}
+  .pill.baja{background:#e7f6ee;color:#247250}
+
+  a{
+    color:var(--accent);
+    word-break:break-all;
+  }
+
+  .footer{
+    font-size:12px;
+    color:var(--muted);
+    text-align:center;
+    margin-top:24px;
+  }
+</style>
+</head>
+
+<body>
+<div class="wrap">
+
+  <div class="hero">
+    <div class="tag">☁️ Proyecto secreto</div>
+    <h1>Nubecita 22 Primaveras</h1>
+    <p>Lista privada de regalos, ideas y presupuesto.</p>
+    <div class="notice">
+      Esta versión está preparada para GitHub Pages. La sincronización entre dispositivos se conectará en el siguiente paso mediante Supabase.
+    </div>
+  </div>
+
+  <section id="setup" class="card hidden">
+    <h2>🔐 Configurar bóveda</h2>
+    <p>Primera vez solamente. Configura las tres respuestas directamente en tu dispositivo.</p>
+
+    <div class="grid">
+      <div>
+        <label>1. ¿Cuál fue la fecha en que falleció mi tata?</label>
+        <input id="s1" autocomplete="off" />
+      </div>
+
+      <div>
+        <label>2. ¿Cuál es el segundo nombre de mi papá?</label>
+        <input id="s2" autocomplete="off" />
+      </div>
+    </div>
+
+    <div style="margin-top:14px">
+      <label>3. ¿Cuál es mi top 3 de superautos?</label>
+      <input id="s3" placeholder="En el orden correcto" autocomplete="off" />
+    </div>
+
+    <div class="notice">
+      Las respuestas no se guardan en texto plano. Se usan para derivar la clave de cifrado.
+    </div>
+
+    <div class="actions">
+      <button onclick="setupVault()">Crear bóveda</button>
+    </div>
+
+    <div id="setupMsg"></div>
+  </section>
+
+  <section id="unlock" class="card hidden">
+    <h2>🔒 Desbloquear</h2>
+    <p>Responde correctamente las tres preguntas.</p>
+
+    <div class="grid">
+      <div>
+        <label>1. Fecha en que falleció mi tata</label>
+        <input id="u1" autocomplete="off" />
+      </div>
+
+      <div>
+        <label>2. Segundo nombre de mi papá</label>
+        <input id="u2" autocomplete="off" />
+      </div>
+    </div>
+
+    <div style="margin-top:14px">
+      <label>3. Mi top 3 de superautos</label>
+      <input id="u3" autocomplete="off" />
+    </div>
+
+    <div class="actions">
+      <button onclick="unlockVault()">Entrar</button>
+    </div>
+
+    <div id="unlockMsg"></div>
+  </section>
+
+  <section id="app" class="hidden">
+
+    <div class="card">
+      <div class="topbar">
+        <div>
+          <h2 style="margin-bottom:4px">🎁 Lista de regalitos</h2>
+          <div class="small">Contenido cifrado en este navegador.</div>
+        </div>
+
+        <div class="actions" style="margin-top:0">
+          <button class="secondary" onclick="exportBackup()">Exportar respaldo</button>
+          <button class="danger" onclick="lockVault()">Bloquear</button>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <span class="small">Presupuesto objetivo</span>
+          <b id="stBudget">$0</b>
+        </div>
+
+        <div class="stat">
+          <span class="small">Total estimado</span>
+          <b id="stEstimated">$0</b>
+        </div>
+
+        <div class="stat">
+          <span class="small">Ya comprado</span>
+          <b id="stBought">$0</b>
+        </div>
+
+        <div class="stat">
+          <span class="small">Falta aprox.</span>
+          <b id="stRemaining">$0</b>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>💰 Presupuesto</h2>
+
+      <div class="grid">
+        <div>
+          <label>Presupuesto objetivo (CLP)</label>
+          <input type="number" id="budget" min="0" step="1000" />
+        </div>
+
+        <div>
+          <label>Notas generales</label>
+          <input id="globalNotes" placeholder="Ideas, fechas, recordatorios..." />
+        </div>
+      </div>
+
+      <div class="actions">
+        <button onclick="saveGeneral()">Guardar presupuesto</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>➕ Agregar regalo / idea</h2>
+
+      <div class="grid3">
+        <div>
+          <label>Nombre</label>
+          <input id="giftName" />
+        </div>
+
+        <div>
+          <label>Precio estimado</label>
+          <input type="number" id="giftEst" min="0" step="1000" />
+        </div>
+
+        <div>
+          <label>Precio real</label>
+          <input type="number" id="giftReal" min="0" step="1000" />
+        </div>
+      </div>
+
+      <div class="grid3" style="margin-top:14px">
+        <div>
+          <label>Prioridad</label>
+          <select id="giftPriority">
+            <option>Alta</option>
+            <option selected>Media</option>
+            <option>Baja</option>
+          </select>
+        </div>
+
+        <div>
+          <label>Estado</label>
+          <select id="giftStatus">
+            <option>Idea</option>
+            <option>Por comprar</option>
+            <option>Comprado</option>
+          </select>
+        </div>
+
+        <div>
+          <label>Link</label>
+          <input id="giftLink" placeholder="https://..." />
+        </div>
+      </div>
+
+      <div style="margin-top:14px">
+        <label>Notas</label>
+        <textarea id="giftNotes" placeholder="Talla, color, tienda, detalles..."></textarea>
+      </div>
+
+      <div class="actions">
+        <button onclick="addGift()">Agregar a la lista</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>📝 Regalos</h2>
+
+      <div style="overflow-x:auto">
+        <table>
+          <thead>
+            <tr>
+              <th>Regalo</th>
+              <th>Precio</th>
+              <th>Prioridad</th>
+              <th>Estado</th>
+              <th>Link / notas</th>
+              <th></th>
+            </tr>
+          </thead>
+
+          <tbody id="giftRows"></tbody>
+        </table>
+      </div>
+
+      <div id="emptyState" class="notice">
+        Todavía no hay regalos. Agrega la primera idea ☁️
+      </div>
+    </div>
+
+  </section>
+
+  <div class="footer">
+    Nubecita 22 Primaveras · GitHub Pages ready · Web Crypto API
+  </div>
+
+</div>
+
+<script>
+const STORAGE_KEY = "nubecita22_vault_v2";
+let unlockedKey = null;
+let state = null;
+
+function normalizeAnswer(value){
+  return value
+    .trim()
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g,"")
+    .replace(/\s+/g," ");
+}
+
+function answersMaterial(a,b,c){
+  return [
+    normalizeAnswer(a),
+    normalizeAnswer(b),
+    normalizeAnswer(c)
+  ].join("|||");
+}
+
+function bytesToB64(bytes){
+  let binary = "";
+  bytes.forEach(b => binary += String.fromCharCode(b));
+  return btoa(binary);
+}
+
+function b64ToBytes(str){
+  const bin = atob(str);
+  const arr = new Uint8Array(bin.length);
+
+  for(let i=0;i<bin.length;i++){
+    arr[i] = bin.charCodeAt(i);
+  }
+
+  return arr;
+}
+
+async function deriveKey(material,salt){
+  const encoder = new TextEncoder();
+
+  const baseKey = await crypto.subtle.importKey(
+    "raw",
+    encoder.encode(material),
+    "PBKDF2",
+    false,
+    ["deriveKey"]
+  );
+
+  return crypto.subtle.deriveKey(
+    {
+      name:"PBKDF2",
+      salt,
+      iterations:250000,
+      hash:"SHA-256"
+    },
+    baseKey,
+    {
+      name:"AES-GCM",
+      length:256
+    },
+    false,
+    ["encrypt","decrypt"]
+  );
+}
+
+async function encryptState(key,obj){
+  const iv = crypto.getRandomValues(new Uint8Array(12));
+  const encoder = new TextEncoder();
+  const data = encoder.encode(JSON.stringify(obj));
+
+  const cipher = await crypto.subtle.encrypt(
+    {name:"AES-GCM",iv},
+    key,
+    data
+  );
+
+  return {
+    iv:bytesToB64(iv),
+    data:bytesToB64(new Uint8Array(cipher))
+  };
+}
+
+async function decryptState(key,payload){
+  const iv = b64ToBytes(payload.iv);
+  const data = b64ToBytes(payload.data);
+
+  const plain = await crypto.subtle.decrypt(
+    {name:"AES-GCM",iv},
+    key,
+    data
+  );
+
+  return JSON.parse(new TextDecoder().decode(plain));
+}
+
+function defaultState(){
+  return {
+    budget:0,
+    globalNotes:"",
+    gifts:[],
+    createdAt:new Date().toISOString()
+  };
+}
+
+function show(id){
+  ["setup","unlock","app"].forEach(section=>{
+    document.getElementById(section).classList.add("hidden");
+  });
+
+  document.getElementById(id).classList.remove("hidden");
+}
+
+async function setupVault(){
+  const a = document.getElementById("s1").value;
+  const b = document.getElementById("s2").value;
+  const c = document.getElementById("s3").value;
+
+  const msg = document.getElementById("setupMsg");
+
+  if(!a.trim() || !b.trim() || !c.trim()){
+    msg.innerHTML = '<div class="error">Completa las tres respuestas.</div>';
+    return;
+  }
+
+  const salt = crypto.getRandomValues(new Uint8Array(16));
+
+  const key = await deriveKey(
+    answersMaterial(a,b,c),
+    salt
+  );
+
+  state = defaultState();
+
+  const encrypted = await encryptState(key,state);
+
+  localStorage.setItem(
+    STORAGE_KEY,
+    JSON.stringify({
+      salt:bytesToB64(salt),
+      ...encrypted
+    })
+  );
+
+  unlockedKey = key;
+
+  ["s1","s2","s3"].forEach(id=>{
+    document.getElementById(id).value="";
+  });
+
+  renderApp();
+  show("app");
+}
+
+async function unlockVault(){
+  const raw = localStorage.getItem(STORAGE_KEY);
+  const msg = document.getElementById("unlockMsg");
+
+  if(!raw){
+    show("setup");
+    return;
+  }
+
+  try{
+    const vault = JSON.parse(raw);
+
+    const material = answersMaterial(
+      document.getElementById("u1").value,
+      document.getElementById("u2").value,
+      document.getElementById("u3").value
+    );
+
+    const key = await deriveKey(
+      material,
+      b64ToBytes(vault.salt)
+    );
+
+    const obj = await decryptState(
+      key,
+      {
+        iv:vault.iv,
+        data:vault.data
+      }
+    );
+
+    unlockedKey = key;
+    state = obj;
+
+    ["u1","u2","u3"].forEach(id=>{
+      document.getElementById(id).value="";
+    });
+
+    renderApp();
+    show("app");
+
+    msg.innerHTML="";
+  }
+  catch{
+    msg.innerHTML = '<div class="error">Alguna respuesta no coincide.</div>';
+  }
+}
+
+async function persist(){
+  if(!unlockedKey || !state) return;
+
+  const raw = JSON.parse(
+    localStorage.getItem(STORAGE_KEY)
+  );
+
+  const encrypted = await encryptState(
+    unlockedKey,
+    state
+  );
+
+  localStorage.setItem(
+    STORAGE_KEY,
+    JSON.stringify({
+      salt:raw.salt,
+      ...encrypted
+    })
+  );
+}
+
+function money(value){
+  return new Intl.NumberFormat(
+    "es-CL",
+    {
+      style:"currency",
+      currency:"CLP",
+      maximumFractionDigits:0
+    }
+  ).format(Number(value)||0);
+}
+
+function escapeHtml(text=""){
+  return String(text).replace(
+    /[&<>"']/g,
+    char=>({
+      "&":"&amp;",
+      "<":"&lt;",
+      ">":"&gt;",
+      '"':"&quot;",
+      "'":"&#039;"
+    }[char])
+  );
+}
+
+function safeUrl(url=""){
+  try{
+    const parsed = new URL(url);
+
+    if(parsed.protocol==="http:" || parsed.protocol==="https:"){
+      return parsed.href;
+    }
+
+    return "#";
+  }
+  catch{
+    return "#";
+  }
+}
+
+function renderApp(){
+  document.getElementById("budget").value = state.budget || "";
+  document.getElementById("globalNotes").value = state.globalNotes || "";
+
+  const tbody = document.getElementById("giftRows");
+  tbody.innerHTML = "";
+
+  let estimated = 0;
+  let bought = 0;
+
+  state.gifts.forEach((gift,index)=>{
+    const chosen = Number(gift.real) || Number(gift.estimated) || 0;
+
+    estimated += chosen;
+
+    if(gift.status==="Comprado"){
+      bought += chosen;
+    }
+
+    const priorityClass = (gift.priority || "Media").toLowerCase();
+
+    const tr = document.createElement("tr");
+
+    tr.innerHTML = `
+      <td>
+        <strong>${escapeHtml(gift.name)}</strong>
+      </td>
+
+      <td>
+        ${money(chosen)}
+        <div class="small">
+          ${gift.real ? "real" : "estimado"}
+        </div>
+      </td>
+
+      <td>
+        <span class="pill ${priorityClass}">
+          ${escapeHtml(gift.priority)}
+        </span>
+      </td>
+
+      <td>
+        <span class="pill">
+          ${escapeHtml(gift.status)}
+        </span>
+      </td>
+
+      <td>
+        ${
+          gift.link
+            ? `<a href="${safeUrl(gift.link)}" target="_blank" rel="noopener">Abrir link</a>`
+            : ""
+        }
+
+        ${
+          gift.notes
+            ? `<div class="small" style="margin-top:5px">${escapeHtml(gift.notes)}</div>`
+            : ""
+        }
+      </td>
+
+      <td>
+        <button class="danger" onclick="removeGift(${index})">
+          Eliminar
+        </button>
+      </td>
+    `;
+
+    tbody.appendChild(tr);
+  });
+
+  document.getElementById("emptyState").classList.toggle(
+    "hidden",
+    state.gifts.length>0
+  );
+
+  document.getElementById("stBudget").textContent = money(state.budget);
+  document.getElementById("stEstimated").textContent = money(estimated);
+  document.getElementById("stBought").textContent = money(bought);
+  document.getElementById("stRemaining").textContent = money(
+    Math.max(estimated-bought,0)
+  );
+}
+
+async function saveGeneral(){
+  state.budget = Number(
+    document.getElementById("budget").value
+  ) || 0;
+
+  state.globalNotes = document
+    .getElementById("globalNotes")
+    .value
+    .trim();
+
+  await persist();
+  renderApp();
+}
+
+async function addGift(){
+  const name = document
+    .getElementById("giftName")
+    .value
+    .trim();
+
+  if(!name){
+    alert("Ponle un nombre al regalo.");
+    return;
+  }
+
+  state.gifts.push({
+    name,
+    estimated:Number(document.getElementById("giftEst").value)||0,
+    real:Number(document.getElementById("giftReal").value)||0,
+    priority:document.getElementById("giftPriority").value,
+    status:document.getElementById("giftStatus").value,
+    link:document.getElementById("giftLink").value.trim(),
+    notes:document.getElementById("giftNotes").value.trim(),
+    addedAt:new Date().toISOString()
+  });
+
+  ["giftName","giftEst","giftReal","giftLink","giftNotes"].forEach(id=>{
+    document.getElementById(id).value="";
+  });
+
+  document.getElementById("giftPriority").value="Media";
+  document.getElementById("giftStatus").value="Idea";
+
+  await persist();
+  renderApp();
+}
+
+async function removeGift(index){
+  if(!confirm("¿Eliminar este regalo de la lista?")){
+    return;
+  }
+
+  state.gifts.splice(index,1);
+
+  await persist();
+  renderApp();
+}
+
+function lockVault(){
+  unlockedKey = null;
+  state = null;
+  show("unlock");
+}
+
+function exportBackup(){
+  const raw = localStorage.getItem(STORAGE_KEY);
+
+  if(!raw){
+    return;
+  }
+
+  const blob = new Blob(
+    [raw],
+    {type:"application/json"}
+  );
+
+  const url = URL.createObjectURL(blob);
+  const anchor = document.createElement("a");
+
+  anchor.href = url;
+  anchor.download = "Nubecita_22_Primaveras_Backup.json";
+  anchor.click();
+
+  URL.revokeObjectURL(url);
+}
+
+(function init(){
+  if(localStorage.getItem(STORAGE_KEY)){
+    show("unlock");
+  }
+  else{
+    show("setup");
+  }
+})();
+</script>
+
+</body>
+</html>
