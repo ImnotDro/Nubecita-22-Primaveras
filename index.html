@@ -4,258 +4,98 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="theme-color" content="#f7f4fb" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
 <title>Nubecita 22 Primaveras</title>
 
 <style>
-  :root{
-    --bg:#f7f4fb;
-    --card:#ffffff;
-    --text:#241c2b;
-    --muted:#756d7d;
-    --line:#e9e1ef;
-    --accent:#7c5cff;
-    --accent-soft:#efe9ff;
-    --danger:#d84b6b;
-    --ok:#2d9b73;
-    --shadow:0 16px 45px rgba(71,48,88,.10);
-  }
-
-  *{box-sizing:border-box}
-
-  body{
-    margin:0;
-    font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-    background:linear-gradient(135deg,#fbf8ff 0%,#f3eef8 100%);
-    color:var(--text);
-    min-height:100vh;
-  }
-
-  .wrap{
-    max-width:1050px;
-    margin:auto;
-    padding:28px 18px 60px;
-  }
-
-  .hero,.card{
-    background:rgba(255,255,255,.88);
-    border:1px solid rgba(255,255,255,.8);
-    border-radius:24px;
-    box-shadow:var(--shadow);
-  }
-
-  .hero{
-    padding:28px;
-    margin-bottom:18px;
-  }
-
-  .card{
-    padding:22px;
-    margin-top:18px;
-  }
-
-  .tag{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    padding:8px 12px;
-    border-radius:999px;
-    background:var(--accent-soft);
-    color:#5d43c4;
-    font-weight:800;
-    font-size:13px;
-    margin-bottom:12px;
-  }
-
-  h1{
-    margin:0 0 8px;
-    font-size:clamp(30px,5vw,52px);
-    letter-spacing:-1.5px;
-  }
-
-  h2{margin:0 0 14px}
-
-  p{
-    color:var(--muted);
-    line-height:1.55;
-  }
-
-  .topbar{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:12px;
-    flex-wrap:wrap;
-  }
-
-  .grid{
-    display:grid;
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:14px;
-  }
-
-  .grid3{
-    display:grid;
-    grid-template-columns:repeat(3,minmax(0,1fr));
-    gap:14px;
-  }
-
-  @media(max-width:760px){
-    .grid,.grid3{grid-template-columns:1fr}
-  }
-
-  label{
-    display:block;
-    font-size:13px;
-    font-weight:800;
-    margin-bottom:7px;
-  }
-
-  input,select,textarea{
-    width:100%;
-    border:1px solid var(--line);
-    border-radius:14px;
-    padding:12px 13px;
-    font:inherit;
-    background:#fff;
-    color:var(--text);
-    outline:none;
-  }
-
-  textarea{
-    min-height:86px;
-    resize:vertical;
-  }
-
-  input:focus,select:focus,textarea:focus{
-    border-color:#b892ff;
-    box-shadow:0 0 0 4px rgba(124,92,255,.10);
-  }
-
-  button{
-    border:0;
-    border-radius:14px;
-    padding:12px 16px;
-    font:inherit;
-    font-weight:800;
-    cursor:pointer;
-    background:var(--accent);
-    color:white;
-  }
-
-  button.secondary{
-    background:#eee8f6;
-    color:#4a3b59;
-  }
-
-  button.danger{
-    background:#ffe8ee;
-    color:#a62e4b;
-  }
-
-  button.ghost{
-    background:transparent;
-    color:var(--muted);
-    border:1px solid var(--line);
-  }
-
-  .actions{
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
-    margin-top:16px;
-  }
-
-  .hidden{display:none!important}
-
-  .stats{
-    display:grid;
-    grid-template-columns:repeat(4,minmax(0,1fr));
-    gap:12px;
-    margin-top:16px;
-  }
-
-  @media(max-width:800px){
-    .stats{grid-template-columns:repeat(2,1fr)}
-  }
-
-  .stat{
-    padding:16px;
-    border-radius:18px;
-    background:#faf8fd;
-    border:1px solid var(--line);
-  }
-
-  .stat b{
-    display:block;
-    font-size:24px;
-    margin-top:5px;
-  }
-
-  .small{
-    font-size:12px;
-    color:var(--muted);
-  }
-
-  .notice{
-    padding:12px 14px;
-    border-radius:14px;
-    background:#f6f1ff;
-    color:#5e4e73;
-    font-size:13px;
-    margin-top:12px;
-  }
-
-  .error{
-    color:#a62946;
-    font-weight:800;
-    font-size:13px;
-    margin-top:10px;
-  }
-
-  table{
-    width:100%;
-    border-collapse:collapse;
-    margin-top:14px;
-  }
-
-  th,td{
-    padding:12px 10px;
-    border-bottom:1px solid var(--line);
-    text-align:left;
-    vertical-align:top;
-  }
-
-  th{
-    font-size:12px;
-    color:var(--muted);
-    text-transform:uppercase;
-    letter-spacing:.05em;
-  }
-
-  .pill{
-    display:inline-block;
-    padding:5px 8px;
-    border-radius:999px;
-    font-size:11px;
-    font-weight:800;
-    background:#f0ebf5;
-  }
-
-  .pill.alta{background:#ffe5eb;color:#9f2946}
-  .pill.media{background:#fff2d8;color:#8c6214}
-  .pill.baja{background:#e7f6ee;color:#247250}
-
-  a{
-    color:var(--accent);
-    word-break:break-all;
-  }
-
-  .footer{
-    font-size:12px;
-    color:var(--muted);
-    text-align:center;
-    margin-top:24px;
-  }
+:root {
+  --bg:#f7f4fb;
+  --card:#ffffff;
+  --text:#241c2b;
+  --muted:#756d7d;
+  --line:#e9e1ef;
+  --accent:#7c5cff;
+  --accent-soft:#efe9ff;
+  --danger:#d84b6b;
+  --ok:#2d9b73;
+  --warn:#a66a16;
+  --shadow:0 16px 45px rgba(71,48,88,.10);
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  background:linear-gradient(135deg,#fbf8ff 0%,#f3eef8 100%);
+  color:var(--text);
+  min-height:100vh;
+}
+.wrap{max-width:1080px;margin:auto;padding:28px 18px 60px}
+.hero,.card{
+  background:rgba(255,255,255,.90);
+  border:1px solid rgba(255,255,255,.85);
+  border-radius:24px;
+  box-shadow:var(--shadow);
+}
+.hero{padding:28px;margin-bottom:18px}
+.card{padding:22px;margin-top:18px}
+.tag{
+  display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;
+  background:var(--accent-soft);color:#5d43c4;font-weight:800;font-size:13px;margin-bottom:12px
+}
+h1{margin:0 0 8px;font-size:clamp(30px,5vw,52px);letter-spacing:-1.5px}
+h2{margin:0 0 14px}
+p{color:var(--muted);line-height:1.55}
+.topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+@media(max-width:760px){.grid,.grid3{grid-template-columns:1fr}}
+label{display:block;font-size:13px;font-weight:800;margin-bottom:7px}
+input,select,textarea{
+  width:100%;border:1px solid var(--line);border-radius:14px;padding:12px 13px;
+  font:inherit;background:#fff;color:var(--text);outline:none
+}
+textarea{min-height:86px;resize:vertical}
+input:focus,select:focus,textarea:focus{
+  border-color:#b892ff;box-shadow:0 0 0 4px rgba(124,92,255,.10)
+}
+button{
+  border:0;border-radius:14px;padding:12px 16px;font:inherit;font-weight:800;
+  cursor:pointer;background:var(--accent);color:#fff
+}
+button:disabled{opacity:.55;cursor:not-allowed}
+button.secondary{background:#eee8f6;color:#4a3b59}
+button.danger{background:#ffe8ee;color:#a62e4b}
+button.ghost{background:transparent;color:var(--muted);border:1px solid var(--line)}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.hidden{display:none!important}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:16px}
+@media(max-width:800px){.stats{grid-template-columns:repeat(2,1fr)}}
+.stat{padding:16px;border-radius:18px;background:#faf8fd;border:1px solid var(--line)}
+.stat b{display:block;font-size:24px;margin-top:5px}
+.small{font-size:12px;color:var(--muted)}
+.notice{padding:12px 14px;border-radius:14px;background:#f6f1ff;color:#5e4e73;font-size:13px;margin-top:12px}
+.error{color:#a62946;font-weight:800;font-size:13px;margin-top:10px}
+.success{color:#237a59;font-weight:800;font-size:13px;margin-top:10px}
+.sync{
+  display:inline-flex;align-items:center;gap:7px;padding:7px 10px;border-radius:999px;
+  background:#f3f0f6;color:var(--muted);font-size:12px;font-weight:800
+}
+.dot{width:8px;height:8px;border-radius:50%;background:#aaa}
+.dot.ok{background:var(--ok)}
+.dot.busy{background:#e0a43a}
+.dot.bad{background:var(--danger)}
+table{width:100%;border-collapse:collapse;margin-top:14px}
+th,td{padding:12px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.pill{display:inline-block;padding:5px 8px;border-radius:999px;font-size:11px;font-weight:800;background:#f0ebf5}
+.pill.alta{background:#ffe5eb;color:#9f2946}
+.pill.media{background:#fff2d8;color:#8c6214}
+.pill.baja{background:#e7f6ee;color:#247250}
+a{color:var(--accent);word-break:break-all}
+.footer{font-size:12px;color:var(--muted);text-align:center;margin-top:24px}
+.spinner{display:inline-block;width:14px;height:14px;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
 </style>
 </head>
 
@@ -265,39 +105,44 @@
   <div class="hero">
     <div class="tag">☁️ Proyecto secreto</div>
     <h1>Nubecita 22 Primaveras</h1>
-    <p>Lista privada de regalos, ideas y presupuesto.</p>
-    <div class="notice">
-      Esta versión está preparada para GitHub Pages. La sincronización entre dispositivos se conectará en el siguiente paso mediante Supabase.
+    <p>Una bóveda privada para organizar regalitos, ideas y presupuesto desde cualquier dispositivo.</p>
+    <div id="cloudStatus" class="sync">
+      <span id="statusDot" class="dot busy"></span>
+      <span id="statusText">Comprobando nube…</span>
     </div>
   </div>
 
+  <section id="loading" class="card">
+    <h2>☁️ Conectando</h2>
+    <p><span class="spinner"></span> Comprobando si la bóveda ya está configurada.</p>
+  </section>
+
   <section id="setup" class="card hidden">
     <h2>🔐 Configurar bóveda</h2>
-    <p>Primera vez solamente. Configura las tres respuestas directamente en tu dispositivo.</p>
+    <p>Esta configuración se hace una sola vez. Las tres respuestas se usan en tu dispositivo para generar la llave que cifra la lista.</p>
 
     <div class="grid">
       <div>
         <label>1. ¿Cuál fue la fecha en que falleció mi tata?</label>
-        <input id="s1" autocomplete="off" />
+        <input id="s1" placeholder="dd/mm/aaaa" autocomplete="off" spellcheck="false" />
       </div>
-
       <div>
         <label>2. ¿Cuál es el segundo nombre de mi papá?</label>
-        <input id="s2" autocomplete="off" />
+        <input id="s2" autocomplete="off" spellcheck="false" />
       </div>
     </div>
 
     <div style="margin-top:14px">
       <label>3. ¿Cuál es mi top 3 de superautos?</label>
-      <input id="s3" placeholder="En el orden correcto" autocomplete="off" />
+      <input id="s3" placeholder="En el orden correcto" autocomplete="off" spellcheck="false" />
     </div>
 
     <div class="notice">
-      Las respuestas no se guardan en texto plano. Se usan para derivar la clave de cifrado.
+      La fecha acepta diferencias como "/" o "-". En las otras respuestas se ignoran mayúsculas, tildes y espacios extra. El orden del top 3 sí importa.
     </div>
 
     <div class="actions">
-      <button onclick="setupVault()">Crear bóveda</button>
+      <button id="setupBtn" onclick="setupVault()">Crear bóveda en la nube</button>
     </div>
 
     <div id="setupMsg"></div>
@@ -305,27 +150,26 @@
 
   <section id="unlock" class="card hidden">
     <h2>🔒 Desbloquear</h2>
-    <p>Responde correctamente las tres preguntas.</p>
+    <p>Responde las tres preguntas para descargar y descifrar la bóveda en este dispositivo.</p>
 
     <div class="grid">
       <div>
         <label>1. Fecha en que falleció mi tata</label>
-        <input id="u1" autocomplete="off" />
+        <input id="u1" placeholder="dd/mm/aaaa" autocomplete="off" spellcheck="false" />
       </div>
-
       <div>
         <label>2. Segundo nombre de mi papá</label>
-        <input id="u2" autocomplete="off" />
+        <input id="u2" autocomplete="off" spellcheck="false" />
       </div>
     </div>
 
     <div style="margin-top:14px">
       <label>3. Mi top 3 de superautos</label>
-      <input id="u3" autocomplete="off" />
+      <input id="u3" placeholder="En el orden correcto" autocomplete="off" spellcheck="false" />
     </div>
 
     <div class="actions">
-      <button onclick="unlockVault()">Entrar</button>
+      <button id="unlockBtn" onclick="unlockVault()">Entrar</button>
     </div>
 
     <div id="unlockMsg"></div>
@@ -337,72 +181,52 @@
       <div class="topbar">
         <div>
           <h2 style="margin-bottom:4px">🎁 Lista de regalitos</h2>
-          <div class="small">Contenido cifrado en este navegador.</div>
+          <div class="small" id="lastSync">Sincronización pendiente</div>
         </div>
-
         <div class="actions" style="margin-top:0">
-          <button class="secondary" onclick="exportBackup()">Exportar respaldo</button>
+          <button class="secondary" onclick="refreshFromCloud()">Actualizar</button>
+          <button class="ghost" onclick="exportEncryptedBackup()">Respaldo cifrado</button>
           <button class="danger" onclick="lockVault()">Bloquear</button>
         </div>
       </div>
 
       <div class="stats">
-        <div class="stat">
-          <span class="small">Presupuesto objetivo</span>
-          <b id="stBudget">$0</b>
-        </div>
-
-        <div class="stat">
-          <span class="small">Total estimado</span>
-          <b id="stEstimated">$0</b>
-        </div>
-
-        <div class="stat">
-          <span class="small">Ya comprado</span>
-          <b id="stBought">$0</b>
-        </div>
-
-        <div class="stat">
-          <span class="small">Falta aprox.</span>
-          <b id="stRemaining">$0</b>
-        </div>
+        <div class="stat"><span class="small">Presupuesto objetivo</span><b id="stBudget">$0</b></div>
+        <div class="stat"><span class="small">Total estimado</span><b id="stEstimated">$0</b></div>
+        <div class="stat"><span class="small">Ya comprado</span><b id="stBought">$0</b></div>
+        <div class="stat"><span class="small">Falta aprox.</span><b id="stRemaining">$0</b></div>
       </div>
     </div>
 
     <div class="card">
       <h2>💰 Presupuesto</h2>
-
       <div class="grid">
         <div>
           <label>Presupuesto objetivo (CLP)</label>
           <input type="number" id="budget" min="0" step="1000" />
         </div>
-
         <div>
           <label>Notas generales</label>
           <input id="globalNotes" placeholder="Ideas, fechas, recordatorios..." />
         </div>
       </div>
-
       <div class="actions">
         <button onclick="saveGeneral()">Guardar presupuesto</button>
       </div>
     </div>
 
     <div class="card">
-      <h2>➕ Agregar regalo / idea</h2>
+      <h2 id="giftFormTitle">➕ Agregar regalo / idea</h2>
 
       <div class="grid3">
         <div>
           <label>Nombre</label>
           <input id="giftName" />
         </div>
-
         <div>
           <label>Precio estimado</label>
           <input type="number" id="giftEst" min="0" step="1000" />
         </div>
-
         <div>
           <label>Precio real</label>
           <input type="number" id="giftReal" min="0" step="1000" />
@@ -418,7 +242,6 @@
             <option>Baja</option>
           </select>
         </div>
-
         <div>
           <label>Estado</label>
           <select id="giftStatus">
@@ -427,7 +250,6 @@
             <option>Comprado</option>
           </select>
         </div>
-
         <div>
           <label>Link</label>
           <input id="giftLink" placeholder="https://..." />
@@ -440,7 +262,8 @@
       </div>
 
       <div class="actions">
-        <button onclick="addGift()">Agregar a la lista</button>
+        <button id="giftSaveBtn" onclick="saveGift()">Agregar a la lista</button>
+        <button id="cancelEditBtn" class="ghost hidden" onclick="cancelGiftEdit()">Cancelar edición</button>
       </div>
     </div>
 
@@ -459,7 +282,6 @@
               <th></th>
             </tr>
           </thead>
-
           <tbody id="giftRows"></tbody>
         </table>
       </div>
@@ -472,17 +294,40 @@
   </section>
 
   <div class="footer">
-    Nubecita 22 Primaveras · GitHub Pages ready · Web Crypto API
+    Nubecita 22 Primaveras · cifrado AES-GCM en el dispositivo · sincronización Supabase
   </div>
 
 </div>
 
 <script>
-const STORAGE_KEY = "nubecita22_vault_v2";
-let unlockedKey = null;
-let state = null;
+const SUPABASE_URL = "https://jujmvatdthkguwcleiei.supabase.co";
+const SUPABASE_KEY = "sb_publishable_dOJIV5z_MNGUXn2XJNvVFA_BtTU5Upi";
 
-function normalizeAnswer(value){
+let unlockedKey = null;
+let currentVaultId = null;
+let currentSaltB64 = null;
+let currentEncryptedPayload = null;
+let state = null;
+let editingGiftIndex = null;
+
+function setStatus(kind,text){
+  const dot = document.getElementById("statusDot");
+  dot.className = "dot " + kind;
+  document.getElementById("statusText").textContent = text;
+}
+
+function show(id){
+  ["loading","setup","unlock","app"].forEach(section => {
+    document.getElementById(section).classList.add("hidden");
+  });
+  document.getElementById(id).classList.remove("hidden");
+}
+
+function normalizeDateAnswer(value){
+  return value.trim().replace(/\D/g,"");
+}
+
+function normalizeTextAnswer(value){
   return value
     .trim()
     .toLowerCase()
@@ -491,11 +336,22 @@ function normalizeAnswer(value){
     .replace(/\s+/g," ");
 }
 
+function normalizeCarsAnswer(value){
+  return value
+    .trim()
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g,"")
+    .replace(/[^a-z0-9]+/g," ")
+    .replace(/\s+/g," ")
+    .trim();
+}
+
 function answersMaterial(a,b,c){
   return [
-    normalizeAnswer(a),
-    normalizeAnswer(b),
-    normalizeAnswer(c)
+    normalizeDateAnswer(a),
+    normalizeTextAnswer(b),
+    normalizeCarsAnswer(c)
   ].join("|||");
 }
 
@@ -508,20 +364,22 @@ function bytesToB64(bytes){
 function b64ToBytes(str){
   const bin = atob(str);
   const arr = new Uint8Array(bin.length);
-
-  for(let i=0;i<bin.length;i++){
-    arr[i] = bin.charCodeAt(i);
-  }
-
+  for(let i=0;i<bin.length;i++) arr[i] = bin.charCodeAt(i);
   return arr;
 }
 
-async function deriveKey(material,salt){
-  const encoder = new TextEncoder();
+async function sha256Hex(text){
+  const data = new TextEncoder().encode(text);
+  const digest = await crypto.subtle.digest("SHA-256",data);
+  return Array.from(new Uint8Array(digest))
+    .map(b => b.toString(16).padStart(2,"0"))
+    .join("");
+}
 
+async function deriveKey(material,salt){
   const baseKey = await crypto.subtle.importKey(
     "raw",
-    encoder.encode(material),
+    new TextEncoder().encode(material),
     "PBKDF2",
     false,
     ["deriveKey"]
@@ -535,10 +393,7 @@ async function deriveKey(material,salt){
       hash:"SHA-256"
     },
     baseKey,
-    {
-      name:"AES-GCM",
-      length:256
-    },
+    {name:"AES-GCM",length:256},
     false,
     ["encrypt","decrypt"]
   );
@@ -546,14 +401,8 @@ async function deriveKey(material,salt){
 
 async function encryptState(key,obj){
   const iv = crypto.getRandomValues(new Uint8Array(12));
-  const encoder = new TextEncoder();
-  const data = encoder.encode(JSON.stringify(obj));
-
-  const cipher = await crypto.subtle.encrypt(
-    {name:"AES-GCM",iv},
-    key,
-    data
-  );
+  const data = new TextEncoder().encode(JSON.stringify(obj));
+  const cipher = await crypto.subtle.encrypt({name:"AES-GCM",iv},key,data);
 
   return {
     iv:bytesToB64(iv),
@@ -562,16 +411,50 @@ async function encryptState(key,obj){
 }
 
 async function decryptState(key,payload){
-  const iv = b64ToBytes(payload.iv);
-  const data = b64ToBytes(payload.data);
-
   const plain = await crypto.subtle.decrypt(
-    {name:"AES-GCM",iv},
+    {name:"AES-GCM",iv:b64ToBytes(payload.iv)},
     key,
-    data
+    b64ToBytes(payload.data)
   );
 
   return JSON.parse(new TextDecoder().decode(plain));
+}
+
+async function rpc(name,body={}){
+  const response = await fetch(`${SUPABASE_URL}/rest/v1/rpc/${name}`,{
+    method:"POST",
+    headers:{
+      "apikey":SUPABASE_KEY,
+      "Content-Type":"application/json"
+    },
+    body:JSON.stringify(body)
+  });
+
+  if(!response.ok){
+    const text = await response.text();
+    throw new Error(`Supabase ${response.status}: ${text}`);
+  }
+
+  const text = await response.text();
+  return text ? JSON.parse(text) : null;
+}
+
+async function vaultExists(){
+  return await rpc("nubecita_vault_exists");
+}
+
+async function getVault(vaultId){
+  const rows = await rpc("nubecita_get_vault",{p_vault_id:vaultId});
+  return Array.isArray(rows) && rows.length ? rows[0] : null;
+}
+
+async function saveVault(vaultId,saltB64,encrypted){
+  return await rpc("nubecita_save_vault",{
+    p_vault_id:vaultId,
+    p_salt:saltB64,
+    p_iv:encrypted.iv,
+    p_data:encrypted.data
+  });
 }
 
 function defaultState(){
@@ -579,163 +462,189 @@ function defaultState(){
     budget:0,
     globalNotes:"",
     gifts:[],
-    createdAt:new Date().toISOString()
+    createdAt:new Date().toISOString(),
+    updatedAt:new Date().toISOString()
   };
 }
 
-function show(id){
-  ["setup","unlock","app"].forEach(section=>{
-    document.getElementById(section).classList.add("hidden");
-  });
-
-  document.getElementById(id).classList.remove("hidden");
-}
-
 async function setupVault(){
+  const btn = document.getElementById("setupBtn");
+  const msg = document.getElementById("setupMsg");
+  msg.innerHTML = "";
+
   const a = document.getElementById("s1").value;
   const b = document.getElementById("s2").value;
   const c = document.getElementById("s3").value;
 
-  const msg = document.getElementById("setupMsg");
-
-  if(!a.trim() || !b.trim() || !c.trim()){
+  if(!normalizeDateAnswer(a) || !normalizeTextAnswer(b) || !normalizeCarsAnswer(c)){
     msg.innerHTML = '<div class="error">Completa las tres respuestas.</div>';
     return;
   }
 
-  const salt = crypto.getRandomValues(new Uint8Array(16));
-
-  const key = await deriveKey(
-    answersMaterial(a,b,c),
-    salt
-  );
-
-  state = defaultState();
-
-  const encrypted = await encryptState(key,state);
-
-  localStorage.setItem(
-    STORAGE_KEY,
-    JSON.stringify({
-      salt:bytesToB64(salt),
-      ...encrypted
-    })
-  );
-
-  unlockedKey = key;
-
-  ["s1","s2","s3"].forEach(id=>{
-    document.getElementById(id).value="";
-  });
-
-  renderApp();
-  show("app");
-}
-
-async function unlockVault(){
-  const raw = localStorage.getItem(STORAGE_KEY);
-  const msg = document.getElementById("unlockMsg");
-
-  if(!raw){
-    show("setup");
-    return;
-  }
+  btn.disabled = true;
+  btn.textContent = "Creando…";
+  setStatus("busy","Creando bóveda…");
 
   try{
-    const vault = JSON.parse(raw);
+    if(await vaultExists()){
+      show("unlock");
+      throw new Error("La bóveda ya fue configurada.");
+    }
 
-    const material = answersMaterial(
-      document.getElementById("u1").value,
-      document.getElementById("u2").value,
-      document.getElementById("u3").value
-    );
+    const material = answersMaterial(a,b,c);
+    const vaultId = await sha256Hex("nubecita22|" + material);
+    const salt = crypto.getRandomValues(new Uint8Array(16));
+    const saltB64 = bytesToB64(salt);
+    const key = await deriveKey(material,salt);
 
-    const key = await deriveKey(
-      material,
-      b64ToBytes(vault.salt)
-    );
+    state = defaultState();
+    const encrypted = await encryptState(key,state);
+    const saved = await saveVault(vaultId,saltB64,encrypted);
 
-    const obj = await decryptState(
-      key,
-      {
-        iv:vault.iv,
-        data:vault.data
-      }
-    );
+    if(saved !== true){
+      throw new Error("Supabase no confirmó la creación de la bóveda.");
+    }
 
     unlockedKey = key;
-    state = obj;
+    currentVaultId = vaultId;
+    currentSaltB64 = saltB64;
+    currentEncryptedPayload = encrypted;
 
-    ["u1","u2","u3"].forEach(id=>{
-      document.getElementById(id).value="";
-    });
+    ["s1","s2","s3"].forEach(id => document.getElementById(id).value="");
 
     renderApp();
     show("app");
-
-    msg.innerHTML="";
-  }
-  catch{
-    msg.innerHTML = '<div class="error">Alguna respuesta no coincide.</div>';
+    markSynced();
+  }catch(error){
+    msg.innerHTML = `<div class="error">${escapeHtml(error.message || "No se pudo crear la bóveda.")}</div>`;
+    setStatus("bad","Error de conexión");
+  }finally{
+    btn.disabled = false;
+    btn.textContent = "Crear bóveda en la nube";
   }
 }
 
-async function persist(){
-  if(!unlockedKey || !state) return;
+async function unlockVault(){
+  const btn = document.getElementById("unlockBtn");
+  const msg = document.getElementById("unlockMsg");
+  msg.innerHTML = "";
 
-  const raw = JSON.parse(
-    localStorage.getItem(STORAGE_KEY)
-  );
+  const a = document.getElementById("u1").value;
+  const b = document.getElementById("u2").value;
+  const c = document.getElementById("u3").value;
 
-  const encrypted = await encryptState(
-    unlockedKey,
-    state
-  );
+  if(!normalizeDateAnswer(a) || !normalizeTextAnswer(b) || !normalizeCarsAnswer(c)){
+    msg.innerHTML = '<div class="error">Completa las tres respuestas.</div>';
+    return;
+  }
 
-  localStorage.setItem(
-    STORAGE_KEY,
-    JSON.stringify({
-      salt:raw.salt,
-      ...encrypted
-    })
-  );
+  btn.disabled = true;
+  btn.textContent = "Abriendo…";
+  setStatus("busy","Descargando bóveda…");
+
+  try{
+    const material = answersMaterial(a,b,c);
+    const vaultId = await sha256Hex("nubecita22|" + material);
+    const vault = await getVault(vaultId);
+
+    if(!vault){
+      throw new Error("Alguna respuesta no coincide.");
+    }
+
+    const key = await deriveKey(material,b64ToBytes(vault.salt));
+    const decrypted = await decryptState(key,{iv:vault.iv,data:vault.data});
+
+    unlockedKey = key;
+    currentVaultId = vaultId;
+    currentSaltB64 = vault.salt;
+    currentEncryptedPayload = {iv:vault.iv,data:vault.data};
+    state = decrypted;
+
+    ["u1","u2","u3"].forEach(id => document.getElementById(id).value="");
+
+    renderApp();
+    show("app");
+    markSynced(vault.updated_at);
+  }catch(error){
+    const friendly = (error && String(error.message).includes("decrypt"))
+      ? "Alguna respuesta no coincide."
+      : (error.message || "No se pudo abrir la bóveda.");
+
+    msg.innerHTML = `<div class="error">${escapeHtml(friendly)}</div>`;
+    setStatus("bad","No se pudo desbloquear");
+  }finally{
+    btn.disabled = false;
+    btn.textContent = "Entrar";
+  }
+}
+
+async function persistCloud(){
+  if(!unlockedKey || !currentVaultId || !currentSaltB64 || !state){
+    throw new Error("La bóveda no está desbloqueada.");
+  }
+
+  setStatus("busy","Guardando cambios…");
+  state.updatedAt = new Date().toISOString();
+
+  const encrypted = await encryptState(unlockedKey,state);
+  const saved = await saveVault(currentVaultId,currentSaltB64,encrypted);
+
+  if(saved !== true){
+    setStatus("bad","No se guardaron los cambios");
+    throw new Error("La nube no confirmó el guardado.");
+  }
+
+  currentEncryptedPayload = encrypted;
+  markSynced();
+}
+
+async function refreshFromCloud(){
+  if(!currentVaultId || !unlockedKey) return;
+
+  setStatus("busy","Actualizando…");
+
+  try{
+    const vault = await getVault(currentVaultId);
+    if(!vault) throw new Error("No se encontró la bóveda.");
+
+    state = await decryptState(unlockedKey,{iv:vault.iv,data:vault.data});
+    currentSaltB64 = vault.salt;
+    currentEncryptedPayload = {iv:vault.iv,data:vault.data};
+
+    renderApp();
+    markSynced(vault.updated_at);
+  }catch(error){
+    setStatus("bad","Error al actualizar");
+    alert("No se pudo actualizar desde la nube.");
+  }
+}
+
+function markSynced(timestamp=null){
+  const date = timestamp ? new Date(timestamp) : new Date();
+  setStatus("ok","Sincronizado");
+  document.getElementById("lastSync").textContent =
+    "Última sincronización: " +
+    date.toLocaleString("es-CL",{dateStyle:"short",timeStyle:"short"});
 }
 
 function money(value){
   return new Intl.NumberFormat(
     "es-CL",
-    {
-      style:"currency",
-      currency:"CLP",
-      maximumFractionDigits:0
-    }
+    {style:"currency",currency:"CLP",maximumFractionDigits:0}
   ).format(Number(value)||0);
 }
 
 function escapeHtml(text=""){
-  return String(text).replace(
-    /[&<>"']/g,
-    char=>({
-      "&":"&amp;",
-      "<":"&lt;",
-      ">":"&gt;",
-      '"':"&quot;",
-      "'":"&#039;"
-    }[char])
-  );
+  return String(text).replace(/[&<>"']/g,char=>({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
+  }[char]));
 }
 
 function safeUrl(url=""){
   try{
     const parsed = new URL(url);
-
-    if(parsed.protocol==="http:" || parsed.protocol==="https:"){
-      return parsed.href;
-    }
-
-    return "#";
-  }
-  catch{
+    return (parsed.protocol==="http:" || parsed.protocol==="https:") ? parsed.href : "#";
+  }catch{
     return "#";
   }
 }
@@ -752,172 +661,217 @@ function renderApp(){
 
   state.gifts.forEach((gift,index)=>{
     const chosen = Number(gift.real) || Number(gift.estimated) || 0;
-
     estimated += chosen;
-
-    if(gift.status==="Comprado"){
-      bought += chosen;
-    }
-
-    const priorityClass = (gift.priority || "Media").toLowerCase();
+    if(gift.status==="Comprado") bought += chosen;
 
     const tr = document.createElement("tr");
+    const priorityClass = (gift.priority || "Media").toLowerCase();
 
     tr.innerHTML = `
-      <td>
-        <strong>${escapeHtml(gift.name)}</strong>
-      </td>
-
+      <td><strong>${escapeHtml(gift.name)}</strong></td>
       <td>
         ${money(chosen)}
-        <div class="small">
-          ${gift.real ? "real" : "estimado"}
+        <div class="small">${gift.real ? "real" : "estimado"}</div>
+      </td>
+      <td><span class="pill ${priorityClass}">${escapeHtml(gift.priority)}</span></td>
+      <td><span class="pill">${escapeHtml(gift.status)}</span></td>
+      <td>
+        ${gift.link ? `<a href="${safeUrl(gift.link)}" target="_blank" rel="noopener">Abrir link</a>` : ""}
+        ${gift.notes ? `<div class="small" style="margin-top:5px">${escapeHtml(gift.notes)}</div>` : ""}
+      </td>
+      <td>
+        <div class="actions" style="margin-top:0">
+          <button class="secondary" onclick="editGift(${index})">Editar</button>
+          <button class="danger" onclick="removeGift(${index})">Eliminar</button>
         </div>
-      </td>
-
-      <td>
-        <span class="pill ${priorityClass}">
-          ${escapeHtml(gift.priority)}
-        </span>
-      </td>
-
-      <td>
-        <span class="pill">
-          ${escapeHtml(gift.status)}
-        </span>
-      </td>
-
-      <td>
-        ${
-          gift.link
-            ? `<a href="${safeUrl(gift.link)}" target="_blank" rel="noopener">Abrir link</a>`
-            : ""
-        }
-
-        ${
-          gift.notes
-            ? `<div class="small" style="margin-top:5px">${escapeHtml(gift.notes)}</div>`
-            : ""
-        }
-      </td>
-
-      <td>
-        <button class="danger" onclick="removeGift(${index})">
-          Eliminar
-        </button>
       </td>
     `;
 
     tbody.appendChild(tr);
   });
 
-  document.getElementById("emptyState").classList.toggle(
-    "hidden",
-    state.gifts.length>0
-  );
-
+  document.getElementById("emptyState").classList.toggle("hidden",state.gifts.length>0);
   document.getElementById("stBudget").textContent = money(state.budget);
   document.getElementById("stEstimated").textContent = money(estimated);
   document.getElementById("stBought").textContent = money(bought);
-  document.getElementById("stRemaining").textContent = money(
-    Math.max(estimated-bought,0)
-  );
+  document.getElementById("stRemaining").textContent = money(Math.max(estimated-bought,0));
 }
 
 async function saveGeneral(){
-  state.budget = Number(
-    document.getElementById("budget").value
-  ) || 0;
+  const previous = JSON.stringify(state);
 
-  state.globalNotes = document
-    .getElementById("globalNotes")
-    .value
-    .trim();
+  state.budget = Number(document.getElementById("budget").value)||0;
+  state.globalNotes = document.getElementById("globalNotes").value.trim();
 
-  await persist();
-  renderApp();
+  try{
+    await persistCloud();
+    renderApp();
+  }catch(error){
+    state = JSON.parse(previous);
+    renderApp();
+    alert("No se pudo guardar el presupuesto.");
+  }
 }
 
-async function addGift(){
-  const name = document
-    .getElementById("giftName")
-    .value
-    .trim();
-
-  if(!name){
-    alert("Ponle un nombre al regalo.");
-    return;
-  }
-
-  state.gifts.push({
-    name,
+function getGiftFormData(){
+  return {
+    name:document.getElementById("giftName").value.trim(),
     estimated:Number(document.getElementById("giftEst").value)||0,
     real:Number(document.getElementById("giftReal").value)||0,
     priority:document.getElementById("giftPriority").value,
     status:document.getElementById("giftStatus").value,
     link:document.getElementById("giftLink").value.trim(),
-    notes:document.getElementById("giftNotes").value.trim(),
-    addedAt:new Date().toISOString()
-  });
+    notes:document.getElementById("giftNotes").value.trim()
+  };
+}
 
-  ["giftName","giftEst","giftReal","giftLink","giftNotes"].forEach(id=>{
+async function saveGift(){
+  const gift = getGiftFormData();
+
+  if(!gift.name){
+    alert("Ponle un nombre al regalo.");
+    return;
+  }
+
+  const previous = JSON.stringify(state);
+
+  if(editingGiftIndex === null){
+    state.gifts.push({
+      ...gift,
+      addedAt:new Date().toISOString()
+    });
+  }else{
+    state.gifts[editingGiftIndex] = {
+      ...state.gifts[editingGiftIndex],
+      ...gift,
+      editedAt:new Date().toISOString()
+    };
+  }
+
+  try{
+    await persistCloud();
+    clearGiftForm();
+    renderApp();
+  }catch(error){
+    state = JSON.parse(previous);
+    renderApp();
+    alert("No se pudo guardar el regalo.");
+  }
+}
+
+function editGift(index){
+  const gift = state.gifts[index];
+  editingGiftIndex = index;
+
+  document.getElementById("giftName").value = gift.name || "";
+  document.getElementById("giftEst").value = gift.estimated || "";
+  document.getElementById("giftReal").value = gift.real || "";
+  document.getElementById("giftPriority").value = gift.priority || "Media";
+  document.getElementById("giftStatus").value = gift.status || "Idea";
+  document.getElementById("giftLink").value = gift.link || "";
+  document.getElementById("giftNotes").value = gift.notes || "";
+
+  document.getElementById("giftFormTitle").textContent = "✏️ Editar regalo";
+  document.getElementById("giftSaveBtn").textContent = "Guardar cambios";
+  document.getElementById("cancelEditBtn").classList.remove("hidden");
+
+  document.getElementById("giftFormTitle").scrollIntoView({behavior:"smooth",block:"start"});
+}
+
+function cancelGiftEdit(){
+  clearGiftForm();
+}
+
+function clearGiftForm(){
+  editingGiftIndex = null;
+
+  ["giftName","giftEst","giftReal","giftLink","giftNotes"].forEach(id => {
     document.getElementById(id).value="";
   });
 
   document.getElementById("giftPriority").value="Media";
   document.getElementById("giftStatus").value="Idea";
-
-  await persist();
-  renderApp();
+  document.getElementById("giftFormTitle").textContent="➕ Agregar regalo / idea";
+  document.getElementById("giftSaveBtn").textContent="Agregar a la lista";
+  document.getElementById("cancelEditBtn").classList.add("hidden");
 }
 
 async function removeGift(index){
-  if(!confirm("¿Eliminar este regalo de la lista?")){
-    return;
-  }
+  if(!confirm("¿Eliminar este regalo de la lista?")) return;
 
+  const previous = JSON.stringify(state);
   state.gifts.splice(index,1);
 
-  await persist();
-  renderApp();
-}
-
-function lockVault(){
-  unlockedKey = null;
-  state = null;
-  show("unlock");
-}
-
-function exportBackup(){
-  const raw = localStorage.getItem(STORAGE_KEY);
-
-  if(!raw){
-    return;
+  try{
+    await persistCloud();
+    if(editingGiftIndex === index) clearGiftForm();
+    renderApp();
+  }catch(error){
+    state = JSON.parse(previous);
+    renderApp();
+    alert("No se pudo eliminar el regalo.");
   }
+}
 
-  const blob = new Blob(
-    [raw],
-    {type:"application/json"}
-  );
+function exportEncryptedBackup(){
+  if(!currentVaultId || !currentSaltB64 || !currentEncryptedPayload) return;
 
+  const backup = {
+    version:3,
+    vault_id:currentVaultId,
+    salt:currentSaltB64,
+    iv:currentEncryptedPayload.iv,
+    data:currentEncryptedPayload.data,
+    exported_at:new Date().toISOString()
+  };
+
+  const blob = new Blob([JSON.stringify(backup,null,2)],{type:"application/json"});
   const url = URL.createObjectURL(blob);
   const anchor = document.createElement("a");
 
   anchor.href = url;
-  anchor.download = "Nubecita_22_Primaveras_Backup.json";
+  anchor.download = "Nubecita_22_Primaveras_Backup_Cifrado.json";
   anchor.click();
 
   URL.revokeObjectURL(url);
 }
 
-(function init(){
-  if(localStorage.getItem(STORAGE_KEY)){
-    show("unlock");
+function lockVault(){
+  unlockedKey = null;
+  currentVaultId = null;
+  currentSaltB64 = null;
+  currentEncryptedPayload = null;
+  state = null;
+  editingGiftIndex = null;
+  setStatus("ok","Bóveda en la nube");
+  show("unlock");
+}
+
+async function init(){
+  setStatus("busy","Comprobando nube…");
+
+  try{
+    const exists = await vaultExists();
+
+    if(exists){
+      setStatus("ok","Bóveda disponible");
+      show("unlock");
+    }else{
+      setStatus("ok","Lista para configurar");
+      show("setup");
+    }
+  }catch(error){
+    console.error(error);
+    setStatus("bad","No se pudo conectar con Supabase");
+    document.getElementById("loading").innerHTML = `
+      <h2>⚠️ No se pudo conectar</h2>
+      <p>Revisa la configuración de Supabase o vuelve a cargar la página.</p>
+      <div class="error">${escapeHtml(error.message || "")}</div>
+    `;
   }
-  else{
-    show("setup");
-  }
-})();
+}
+
+init();
 </script>
 
 </body>
