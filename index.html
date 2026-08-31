@@ -7,109 +7,55 @@
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="default" />
 <title>Nubecita 22 Primaveras</title>
-
 <style>
 :root {
-  --bg:#f7f4fb;
-  --card:#ffffff;
-  --text:#241c2b;
-  --muted:#756d7d;
-  --line:#e9e1ef;
-  --accent:#7c5cff;
-  --accent-soft:#efe9ff;
-  --danger:#d84b6b;
-  --ok:#2d9b73;
-  --warn:#a66a16;
+  --bg:#f7f4fb; --card:#fff; --text:#241c2b; --muted:#756d7d; --line:#e9e1ef;
+  --accent:#7c5cff; --accent-soft:#efe9ff; --danger:#d84b6b; --ok:#2d9b73;
   --shadow:0 16px 45px rgba(71,48,88,.10);
 }
 *{box-sizing:border-box}
-body{
-  margin:0;
-  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-  background:linear-gradient(135deg,#fbf8ff 0%,#f3eef8 100%);
-  color:var(--text);
-  min-height:100vh;
-}
+body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:linear-gradient(135deg,#fbf8ff 0%,#f3eef8 100%);color:var(--text);min-height:100vh}
 .wrap{max-width:1080px;margin:auto;padding:28px 18px 60px}
-.hero,.card{
-  background:rgba(255,255,255,.90);
-  border:1px solid rgba(255,255,255,.85);
-  border-radius:24px;
-  box-shadow:var(--shadow);
-}
-.hero{padding:28px;margin-bottom:18px}
-.card{padding:22px;margin-top:18px}
-.tag{
-  display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;
-  background:var(--accent-soft);color:#5d43c4;font-weight:800;font-size:13px;margin-bottom:12px
-}
-h1{margin:0 0 8px;font-size:clamp(30px,5vw,52px);letter-spacing:-1.5px}
-h2{margin:0 0 14px}
+.hero,.card{background:rgba(255,255,255,.90);border:1px solid rgba(255,255,255,.85);border-radius:24px;box-shadow:var(--shadow)}
+.hero{padding:28px;margin-bottom:18px} .card{padding:22px;margin-top:18px}
+.tag{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:var(--accent-soft);color:#5d43c4;font-weight:800;font-size:13px;margin-bottom:12px}
+h1{margin:0 0 8px;font-size:clamp(30px,5vw,52px);letter-spacing:-1.5px} h2{margin:0 0 14px}
 p{color:var(--muted);line-height:1.55}
 .topbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
 .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
 .grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
 @media(max-width:760px){.grid,.grid3{grid-template-columns:1fr}}
 label{display:block;font-size:13px;font-weight:800;margin-bottom:7px}
-input,select,textarea{
-  width:100%;border:1px solid var(--line);border-radius:14px;padding:12px 13px;
-  font:inherit;background:#fff;color:var(--text);outline:none
-}
+input,select,textarea{width:100%;border:1px solid var(--line);border-radius:14px;padding:12px 13px;font:inherit;background:#fff;color:var(--text);outline:none}
 textarea{min-height:86px;resize:vertical}
-input:focus,select:focus,textarea:focus{
-  border-color:#b892ff;box-shadow:0 0 0 4px rgba(124,92,255,.10)
-}
-button{
-  border:0;border-radius:14px;padding:12px 16px;font:inherit;font-weight:800;
-  cursor:pointer;background:var(--accent);color:#fff
-}
+input:focus,select:focus,textarea:focus{border-color:#b892ff;box-shadow:0 0 0 4px rgba(124,92,255,.10)}
+button{border:0;border-radius:14px;padding:12px 16px;font:inherit;font-weight:800;cursor:pointer;background:var(--accent);color:#fff}
 button:disabled{opacity:.55;cursor:not-allowed}
-button.secondary{background:#eee8f6;color:#4a3b59}
-button.danger{background:#ffe8ee;color:#a62e4b}
-button.ghost{background:transparent;color:var(--muted);border:1px solid var(--line)}
-.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
-.hidden{display:none!important}
+button.secondary{background:#eee8f6;color:#4a3b59} button.danger{background:#ffe8ee;color:#a62e4b} button.ghost{background:transparent;color:var(--muted);border:1px solid var(--line)}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px} .hidden{display:none!important}
 .stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:16px}
 @media(max-width:800px){.stats{grid-template-columns:repeat(2,1fr)}}
-.stat{padding:16px;border-radius:18px;background:#faf8fd;border:1px solid var(--line)}
-.stat b{display:block;font-size:24px;margin-top:5px}
-.small{font-size:12px;color:var(--muted)}
-.notice{padding:12px 14px;border-radius:14px;background:#f6f1ff;color:#5e4e73;font-size:13px;margin-top:12px}
+.stat{padding:16px;border-radius:18px;background:#faf8fd;border:1px solid var(--line)} .stat b{display:block;font-size:24px;margin-top:5px}
+.small{font-size:12px;color:var(--muted)} .notice{padding:12px 14px;border-radius:14px;background:#f6f1ff;color:#5e4e73;font-size:13px;margin-top:12px}
 .error{color:#a62946;font-weight:800;font-size:13px;margin-top:10px}
-.success{color:#237a59;font-weight:800;font-size:13px;margin-top:10px}
-.sync{
-  display:inline-flex;align-items:center;gap:7px;padding:7px 10px;border-radius:999px;
-  background:#f3f0f6;color:var(--muted);font-size:12px;font-weight:800
-}
-.dot{width:8px;height:8px;border-radius:50%;background:#aaa}
-.dot.ok{background:var(--ok)}
-.dot.busy{background:#e0a43a}
-.dot.bad{background:var(--danger)}
-table{width:100%;border-collapse:collapse;margin-top:14px}
-th,td{padding:12px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.sync{display:inline-flex;align-items:center;gap:7px;padding:7px 10px;border-radius:999px;background:#f3f0f6;color:var(--muted);font-size:12px;font-weight:800}
+.dot{width:8px;height:8px;border-radius:50%;background:#aaa} .dot.ok{background:var(--ok)} .dot.busy{background:#e0a43a} .dot.bad{background:var(--danger)}
+table{width:100%;border-collapse:collapse;margin-top:14px} th,td{padding:12px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
 th{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
 .pill{display:inline-block;padding:5px 8px;border-radius:999px;font-size:11px;font-weight:800;background:#f0ebf5}
-.pill.alta{background:#ffe5eb;color:#9f2946}
-.pill.media{background:#fff2d8;color:#8c6214}
-.pill.baja{background:#e7f6ee;color:#247250}
-a{color:var(--accent);word-break:break-all}
-.footer{font-size:12px;color:var(--muted);text-align:center;margin-top:24px}
+.pill.alta{background:#ffe5eb;color:#9f2946} .pill.media{background:#fff2d8;color:#8c6214} .pill.baja{background:#e7f6ee;color:#247250}
+a{color:var(--accent);word-break:break-all} .footer{font-size:12px;color:var(--muted);text-align:center;margin-top:24px}
 .spinner{display:inline-block;width:14px;height:14px;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;animation:spin .8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 </style>
 </head>
-
 <body>
 <div class="wrap">
-
   <div class="hero">
     <div class="tag">☁️ Proyecto secreto</div>
     <h1>Nubecita 22 Primaveras</h1>
     <p>Una bóveda privada para organizar regalitos, ideas y presupuesto desde cualquier dispositivo.</p>
-    <div id="cloudStatus" class="sync">
-      <span id="statusDot" class="dot busy"></span>
-      <span id="statusText">Comprobando nube…</span>
-    </div>
+    <div id="cloudStatus" class="sync"><span id="statusDot" class="dot busy"></span><span id="statusText">Comprobando nube…</span></div>
   </div>
 
   <section id="loading" class="card">
@@ -119,7 +65,7 @@ a{color:var(--accent);word-break:break-all}
 
   <section id="setup" class="card hidden">
     <h2>🔐 Configurar bóveda</h2>
-    <p>Esta configuración se hace una sola vez. Las tres respuestas se usan en tu dispositivo para generar la llave que cifra la lista.</p>
+    <p>Esta configuración se hace una sola vez. Las respuestas se usan en tu dispositivo para generar la llave de cifrado.</p>
 
     <div class="grid">
       <div>
@@ -132,25 +78,26 @@ a{color:var(--accent);word-break:break-all}
       </div>
     </div>
 
-    <div style="margin-top:14px">
-      <label>3. ¿Cuál es mi top 3 de superautos?</label>
-      <input id="s3" placeholder="En el orden correcto" autocomplete="off" spellcheck="false" />
+    <div style="margin-top:16px">
+      <label>3. ¿Cuál es mi top 3 de superautos? (en orden)</label>
+      <div class="grid3">
+        <input id="s3a" placeholder="Superauto #1" autocomplete="off" spellcheck="false" />
+        <input id="s3b" placeholder="Superauto #2" autocomplete="off" spellcheck="false" />
+        <input id="s3c" placeholder="Superauto #3" autocomplete="off" spellcheck="false" />
+      </div>
     </div>
 
     <div class="notice">
-      La fecha acepta diferencias como "/" o "-". En las otras respuestas se ignoran mayúsculas, tildes y espacios extra. El orden del top 3 sí importa.
+      La fecha ignora "/" y "-". Los nombres ignoran mayúsculas, tildes, signos y espacios extra. El orden de los 3 autos sí importa.
     </div>
 
-    <div class="actions">
-      <button id="setupBtn" onclick="setupVault()">Crear bóveda en la nube</button>
-    </div>
-
+    <div class="actions"><button id="setupBtn" onclick="setupVault()">Crear bóveda en la nube</button></div>
     <div id="setupMsg"></div>
   </section>
 
   <section id="unlock" class="card hidden">
     <h2>🔒 Desbloquear</h2>
-    <p>Responde las tres preguntas para descargar y descifrar la bóveda en este dispositivo.</p>
+    <p>Responde las tres preguntas para descargar y descifrar la bóveda.</p>
 
     <div class="grid">
       <div>
@@ -163,20 +110,20 @@ a{color:var(--accent);word-break:break-all}
       </div>
     </div>
 
-    <div style="margin-top:14px">
-      <label>3. Mi top 3 de superautos</label>
-      <input id="u3" placeholder="En el orden correcto" autocomplete="off" spellcheck="false" />
+    <div style="margin-top:16px">
+      <label>3. Mi top 3 de superautos (en orden)</label>
+      <div class="grid3">
+        <input id="u3a" placeholder="Superauto #1" autocomplete="off" spellcheck="false" />
+        <input id="u3b" placeholder="Superauto #2" autocomplete="off" spellcheck="false" />
+        <input id="u3c" placeholder="Superauto #3" autocomplete="off" spellcheck="false" />
+      </div>
     </div>
 
-    <div class="actions">
-      <button id="unlockBtn" onclick="unlockVault()">Entrar</button>
-    </div>
-
+    <div class="actions"><button id="unlockBtn" onclick="unlockVault()">Entrar</button></div>
     <div id="unlockMsg"></div>
   </section>
 
   <section id="app" class="hidden">
-
     <div class="card">
       <div class="topbar">
         <div>
@@ -201,66 +148,25 @@ a{color:var(--accent);word-break:break-all}
     <div class="card">
       <h2>💰 Presupuesto</h2>
       <div class="grid">
-        <div>
-          <label>Presupuesto objetivo (CLP)</label>
-          <input type="number" id="budget" min="0" step="1000" />
-        </div>
-        <div>
-          <label>Notas generales</label>
-          <input id="globalNotes" placeholder="Ideas, fechas, recordatorios..." />
-        </div>
+        <div><label>Presupuesto objetivo (CLP)</label><input type="number" id="budget" min="0" step="1000" /></div>
+        <div><label>Notas generales</label><input id="globalNotes" placeholder="Ideas, fechas, recordatorios..." /></div>
       </div>
-      <div class="actions">
-        <button onclick="saveGeneral()">Guardar presupuesto</button>
-      </div>
+      <div class="actions"><button onclick="saveGeneral()">Guardar presupuesto</button></div>
     </div>
 
     <div class="card">
       <h2 id="giftFormTitle">➕ Agregar regalo / idea</h2>
-
       <div class="grid3">
-        <div>
-          <label>Nombre</label>
-          <input id="giftName" />
-        </div>
-        <div>
-          <label>Precio estimado</label>
-          <input type="number" id="giftEst" min="0" step="1000" />
-        </div>
-        <div>
-          <label>Precio real</label>
-          <input type="number" id="giftReal" min="0" step="1000" />
-        </div>
+        <div><label>Nombre</label><input id="giftName" /></div>
+        <div><label>Precio estimado</label><input type="number" id="giftEst" min="0" step="1000" /></div>
+        <div><label>Precio real</label><input type="number" id="giftReal" min="0" step="1000" /></div>
       </div>
-
       <div class="grid3" style="margin-top:14px">
-        <div>
-          <label>Prioridad</label>
-          <select id="giftPriority">
-            <option>Alta</option>
-            <option selected>Media</option>
-            <option>Baja</option>
-          </select>
-        </div>
-        <div>
-          <label>Estado</label>
-          <select id="giftStatus">
-            <option>Idea</option>
-            <option>Por comprar</option>
-            <option>Comprado</option>
-          </select>
-        </div>
-        <div>
-          <label>Link</label>
-          <input id="giftLink" placeholder="https://..." />
-        </div>
+        <div><label>Prioridad</label><select id="giftPriority"><option>Alta</option><option selected>Media</option><option>Baja</option></select></div>
+        <div><label>Estado</label><select id="giftStatus"><option>Idea</option><option>Por comprar</option><option>Comprado</option></select></div>
+        <div><label>Link</label><input id="giftLink" placeholder="https://..." /></div>
       </div>
-
-      <div style="margin-top:14px">
-        <label>Notas</label>
-        <textarea id="giftNotes" placeholder="Talla, color, tienda, detalles..."></textarea>
-      </div>
-
+      <div style="margin-top:14px"><label>Notas</label><textarea id="giftNotes" placeholder="Talla, color, tienda, detalles..."></textarea></div>
       <div class="actions">
         <button id="giftSaveBtn" onclick="saveGift()">Agregar a la lista</button>
         <button id="cancelEditBtn" class="ghost hidden" onclick="cancelGiftEdit()">Cancelar edición</button>
@@ -269,34 +175,17 @@ a{color:var(--accent);word-break:break-all}
 
     <div class="card">
       <h2>📝 Regalos</h2>
-
       <div style="overflow-x:auto">
         <table>
-          <thead>
-            <tr>
-              <th>Regalo</th>
-              <th>Precio</th>
-              <th>Prioridad</th>
-              <th>Estado</th>
-              <th>Link / notas</th>
-              <th></th>
-            </tr>
-          </thead>
+          <thead><tr><th>Regalo</th><th>Precio</th><th>Prioridad</th><th>Estado</th><th>Link / notas</th><th></th></tr></thead>
           <tbody id="giftRows"></tbody>
         </table>
       </div>
-
-      <div id="emptyState" class="notice">
-        Todavía no hay regalos. Agrega la primera idea ☁️
-      </div>
+      <div id="emptyState" class="notice">Todavía no hay regalos. Agrega la primera idea ☁️</div>
     </div>
-
   </section>
 
-  <div class="footer">
-    Nubecita 22 Primaveras · cifrado AES-GCM en el dispositivo · sincronización Supabase
-  </div>
-
+  <div class="footer">Nubecita 22 Primaveras · AES-GCM · sincronización Supabase</div>
 </div>
 
 <script>
@@ -311,408 +200,212 @@ let state = null;
 let editingGiftIndex = null;
 
 function setStatus(kind,text){
-  const dot = document.getElementById("statusDot");
-  dot.className = "dot " + kind;
+  document.getElementById("statusDot").className = "dot " + kind;
   document.getElementById("statusText").textContent = text;
 }
 
 function show(id){
-  ["loading","setup","unlock","app"].forEach(section => {
-    document.getElementById(section).classList.add("hidden");
-  });
+  ["loading","setup","unlock","app"].forEach(x=>document.getElementById(x).classList.add("hidden"));
   document.getElementById(id).classList.remove("hidden");
 }
 
-function normalizeDateAnswer(value){
-  return value.trim().replace(/\D/g,"");
+function normalizeDateAnswer(v){
+  return v.trim().replace(/\D/g,"");
 }
 
-function normalizeTextAnswer(value){
-  return value
-    .trim()
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g,"")
-    .replace(/\s+/g," ");
+function normalizeTextAnswer(v){
+  return v.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g," ").replace(/\s+/g," ").trim();
 }
 
-function normalizeCarsAnswer(value){
-  return value
-    .trim()
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g,"")
-    .replace(/[^a-z0-9]+/g," ")
-    .replace(/\s+/g," ")
-    .trim();
-}
-
-function answersMaterial(a,b,c){
+function answersMaterial(date,father,car1,car2,car3){
   return [
-    normalizeDateAnswer(a),
-    normalizeTextAnswer(b),
-    normalizeCarsAnswer(c)
+    normalizeDateAnswer(date),
+    normalizeTextAnswer(father),
+    normalizeTextAnswer(car1),
+    normalizeTextAnswer(car2),
+    normalizeTextAnswer(car3)
   ].join("|||");
 }
 
 function bytesToB64(bytes){
-  let binary = "";
-  bytes.forEach(b => binary += String.fromCharCode(b));
-  return btoa(binary);
+  let binary=""; bytes.forEach(b=>binary+=String.fromCharCode(b)); return btoa(binary);
 }
-
 function b64ToBytes(str){
-  const bin = atob(str);
-  const arr = new Uint8Array(bin.length);
-  for(let i=0;i<bin.length;i++) arr[i] = bin.charCodeAt(i);
+  const bin=atob(str), arr=new Uint8Array(bin.length);
+  for(let i=0;i<bin.length;i++) arr[i]=bin.charCodeAt(i);
   return arr;
 }
-
 async function sha256Hex(text){
-  const data = new TextEncoder().encode(text);
-  const digest = await crypto.subtle.digest("SHA-256",data);
-  return Array.from(new Uint8Array(digest))
-    .map(b => b.toString(16).padStart(2,"0"))
-    .join("");
+  const digest=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(text));
+  return Array.from(new Uint8Array(digest)).map(b=>b.toString(16).padStart(2,"0")).join("");
 }
-
 async function deriveKey(material,salt){
-  const baseKey = await crypto.subtle.importKey(
-    "raw",
-    new TextEncoder().encode(material),
-    "PBKDF2",
-    false,
-    ["deriveKey"]
-  );
-
+  const baseKey=await crypto.subtle.importKey("raw",new TextEncoder().encode(material),"PBKDF2",false,["deriveKey"]);
   return crypto.subtle.deriveKey(
-    {
-      name:"PBKDF2",
-      salt,
-      iterations:250000,
-      hash:"SHA-256"
-    },
+    {name:"PBKDF2",salt,iterations:250000,hash:"SHA-256"},
     baseKey,
     {name:"AES-GCM",length:256},
     false,
     ["encrypt","decrypt"]
   );
 }
-
 async function encryptState(key,obj){
-  const iv = crypto.getRandomValues(new Uint8Array(12));
-  const data = new TextEncoder().encode(JSON.stringify(obj));
-  const cipher = await crypto.subtle.encrypt({name:"AES-GCM",iv},key,data);
-
-  return {
-    iv:bytesToB64(iv),
-    data:bytesToB64(new Uint8Array(cipher))
-  };
+  const iv=crypto.getRandomValues(new Uint8Array(12));
+  const cipher=await crypto.subtle.encrypt({name:"AES-GCM",iv},key,new TextEncoder().encode(JSON.stringify(obj)));
+  return {iv:bytesToB64(iv),data:bytesToB64(new Uint8Array(cipher))};
 }
-
 async function decryptState(key,payload){
-  const plain = await crypto.subtle.decrypt(
-    {name:"AES-GCM",iv:b64ToBytes(payload.iv)},
-    key,
-    b64ToBytes(payload.data)
-  );
-
+  const plain=await crypto.subtle.decrypt({name:"AES-GCM",iv:b64ToBytes(payload.iv)},key,b64ToBytes(payload.data));
   return JSON.parse(new TextDecoder().decode(plain));
 }
-
 async function rpc(name,body={}){
-  const response = await fetch(`${SUPABASE_URL}/rest/v1/rpc/${name}`,{
+  const r=await fetch(`${SUPABASE_URL}/rest/v1/rpc/${name}`,{
     method:"POST",
-    headers:{
-      "apikey":SUPABASE_KEY,
-      "Content-Type":"application/json"
-    },
+    headers:{"apikey":SUPABASE_KEY,"Content-Type":"application/json"},
     body:JSON.stringify(body)
   });
-
-  if(!response.ok){
-    const text = await response.text();
-    throw new Error(`Supabase ${response.status}: ${text}`);
-  }
-
-  const text = await response.text();
+  if(!r.ok) throw new Error(`Supabase ${r.status}: ${await r.text()}`);
+  const text=await r.text();
   return text ? JSON.parse(text) : null;
 }
-
-async function vaultExists(){
-  return await rpc("nubecita_vault_exists");
-}
-
+async function vaultExists(){return await rpc("nubecita_vault_exists");}
 async function getVault(vaultId){
-  const rows = await rpc("nubecita_get_vault",{p_vault_id:vaultId});
-  return Array.isArray(rows) && rows.length ? rows[0] : null;
+  const rows=await rpc("nubecita_get_vault",{p_vault_id:vaultId});
+  return Array.isArray(rows)&&rows.length?rows[0]:null;
 }
-
 async function saveVault(vaultId,saltB64,encrypted){
-  return await rpc("nubecita_save_vault",{
-    p_vault_id:vaultId,
-    p_salt:saltB64,
-    p_iv:encrypted.iv,
-    p_data:encrypted.data
-  });
+  return await rpc("nubecita_save_vault",{p_vault_id:vaultId,p_salt:saltB64,p_iv:encrypted.iv,p_data:encrypted.data});
 }
-
 function defaultState(){
-  return {
-    budget:0,
-    globalNotes:"",
-    gifts:[],
-    createdAt:new Date().toISOString(),
-    updatedAt:new Date().toISOString()
-  };
+  return {budget:0,globalNotes:"",gifts:[],createdAt:new Date().toISOString(),updatedAt:new Date().toISOString()};
 }
 
 async function setupVault(){
-  const btn = document.getElementById("setupBtn");
-  const msg = document.getElementById("setupMsg");
-  msg.innerHTML = "";
-
-  const a = document.getElementById("s1").value;
-  const b = document.getElementById("s2").value;
-  const c = document.getElementById("s3").value;
-
-  if(!normalizeDateAnswer(a) || !normalizeTextAnswer(b) || !normalizeCarsAnswer(c)){
-    msg.innerHTML = '<div class="error">Completa las tres respuestas.</div>';
-    return;
+  const btn=document.getElementById("setupBtn"), msg=document.getElementById("setupMsg");
+  msg.innerHTML="";
+  const vals=[
+    document.getElementById("s1").value,
+    document.getElementById("s2").value,
+    document.getElementById("s3a").value,
+    document.getElementById("s3b").value,
+    document.getElementById("s3c").value
+  ];
+  if(!normalizeDateAnswer(vals[0]) || vals.slice(1).some(v=>!normalizeTextAnswer(v))){
+    msg.innerHTML='<div class="error">Completa todas las respuestas.</div>'; return;
   }
-
-  btn.disabled = true;
-  btn.textContent = "Creando…";
-  setStatus("busy","Creando bóveda…");
-
+  btn.disabled=true; btn.textContent="Creando…"; setStatus("busy","Creando bóveda…");
   try{
-    if(await vaultExists()){
-      show("unlock");
-      throw new Error("La bóveda ya fue configurada.");
-    }
-
-    const material = answersMaterial(a,b,c);
-    const vaultId = await sha256Hex("nubecita22|" + material);
-    const salt = crypto.getRandomValues(new Uint8Array(16));
-    const saltB64 = bytesToB64(salt);
-    const key = await deriveKey(material,salt);
-
-    state = defaultState();
-    const encrypted = await encryptState(key,state);
-    const saved = await saveVault(vaultId,saltB64,encrypted);
-
-    if(saved !== true){
-      throw new Error("Supabase no confirmó la creación de la bóveda.");
-    }
-
-    unlockedKey = key;
-    currentVaultId = vaultId;
-    currentSaltB64 = saltB64;
-    currentEncryptedPayload = encrypted;
-
-    ["s1","s2","s3"].forEach(id => document.getElementById(id).value="");
-
-    renderApp();
-    show("app");
-    markSynced();
-  }catch(error){
-    msg.innerHTML = `<div class="error">${escapeHtml(error.message || "No se pudo crear la bóveda.")}</div>`;
+    if(await vaultExists()){show("unlock");throw new Error("La bóveda ya fue configurada.");}
+    const material=answersMaterial(...vals);
+    const vaultId=await sha256Hex("nubecita22|"+material);
+    const salt=crypto.getRandomValues(new Uint8Array(16));
+    const saltB64=bytesToB64(salt);
+    const key=await deriveKey(material,salt);
+    state=defaultState();
+    const encrypted=await encryptState(key,state);
+    const saved=await saveVault(vaultId,saltB64,encrypted);
+    if(saved!==true) throw new Error("Supabase no confirmó la creación.");
+    unlockedKey=key; currentVaultId=vaultId; currentSaltB64=saltB64; currentEncryptedPayload=encrypted;
+    ["s1","s2","s3a","s3b","s3c"].forEach(id=>document.getElementById(id).value="");
+    renderApp(); show("app"); markSynced();
+  }catch(e){
+    msg.innerHTML=`<div class="error">${escapeHtml(e.message||"No se pudo crear la bóveda.")}</div>`;
     setStatus("bad","Error de conexión");
-  }finally{
-    btn.disabled = false;
-    btn.textContent = "Crear bóveda en la nube";
-  }
+  }finally{btn.disabled=false;btn.textContent="Crear bóveda en la nube";}
 }
 
 async function unlockVault(){
-  const btn = document.getElementById("unlockBtn");
-  const msg = document.getElementById("unlockMsg");
-  msg.innerHTML = "";
-
-  const a = document.getElementById("u1").value;
-  const b = document.getElementById("u2").value;
-  const c = document.getElementById("u3").value;
-
-  if(!normalizeDateAnswer(a) || !normalizeTextAnswer(b) || !normalizeCarsAnswer(c)){
-    msg.innerHTML = '<div class="error">Completa las tres respuestas.</div>';
-    return;
+  const btn=document.getElementById("unlockBtn"), msg=document.getElementById("unlockMsg");
+  msg.innerHTML="";
+  const vals=[
+    document.getElementById("u1").value,
+    document.getElementById("u2").value,
+    document.getElementById("u3a").value,
+    document.getElementById("u3b").value,
+    document.getElementById("u3c").value
+  ];
+  if(!normalizeDateAnswer(vals[0]) || vals.slice(1).some(v=>!normalizeTextAnswer(v))){
+    msg.innerHTML='<div class="error">Completa todas las respuestas.</div>'; return;
   }
-
-  btn.disabled = true;
-  btn.textContent = "Abriendo…";
-  setStatus("busy","Descargando bóveda…");
-
+  btn.disabled=true; btn.textContent="Abriendo…"; setStatus("busy","Descargando bóveda…");
   try{
-    const material = answersMaterial(a,b,c);
-    const vaultId = await sha256Hex("nubecita22|" + material);
-    const vault = await getVault(vaultId);
-
-    if(!vault){
-      throw new Error("Alguna respuesta no coincide.");
-    }
-
-    const key = await deriveKey(material,b64ToBytes(vault.salt));
-    const decrypted = await decryptState(key,{iv:vault.iv,data:vault.data});
-
-    unlockedKey = key;
-    currentVaultId = vaultId;
-    currentSaltB64 = vault.salt;
-    currentEncryptedPayload = {iv:vault.iv,data:vault.data};
-    state = decrypted;
-
-    ["u1","u2","u3"].forEach(id => document.getElementById(id).value="");
-
-    renderApp();
-    show("app");
-    markSynced(vault.updated_at);
-  }catch(error){
-    const friendly = (error && String(error.message).includes("decrypt"))
-      ? "Alguna respuesta no coincide."
-      : (error.message || "No se pudo abrir la bóveda.");
-
-    msg.innerHTML = `<div class="error">${escapeHtml(friendly)}</div>`;
+    const material=answersMaterial(...vals);
+    const vaultId=await sha256Hex("nubecita22|"+material);
+    const vault=await getVault(vaultId);
+    if(!vault) throw new Error("Alguna respuesta no coincide.");
+    const key=await deriveKey(material,b64ToBytes(vault.salt));
+    const decrypted=await decryptState(key,{iv:vault.iv,data:vault.data});
+    unlockedKey=key; currentVaultId=vaultId; currentSaltB64=vault.salt; currentEncryptedPayload={iv:vault.iv,data:vault.data}; state=decrypted;
+    ["u1","u2","u3a","u3b","u3c"].forEach(id=>document.getElementById(id).value="");
+    renderApp(); show("app"); markSynced(vault.updated_at);
+  }catch(e){
+    msg.innerHTML='<div class="error">Alguna respuesta no coincide.</div>';
     setStatus("bad","No se pudo desbloquear");
-  }finally{
-    btn.disabled = false;
-    btn.textContent = "Entrar";
-  }
+  }finally{btn.disabled=false;btn.textContent="Entrar";}
 }
 
 async function persistCloud(){
-  if(!unlockedKey || !currentVaultId || !currentSaltB64 || !state){
-    throw new Error("La bóveda no está desbloqueada.");
-  }
-
+  if(!unlockedKey||!currentVaultId||!currentSaltB64||!state) throw new Error("La bóveda no está desbloqueada.");
   setStatus("busy","Guardando cambios…");
-  state.updatedAt = new Date().toISOString();
-
-  const encrypted = await encryptState(unlockedKey,state);
-  const saved = await saveVault(currentVaultId,currentSaltB64,encrypted);
-
-  if(saved !== true){
-    setStatus("bad","No se guardaron los cambios");
-    throw new Error("La nube no confirmó el guardado.");
-  }
-
-  currentEncryptedPayload = encrypted;
-  markSynced();
+  state.updatedAt=new Date().toISOString();
+  const encrypted=await encryptState(unlockedKey,state);
+  const saved=await saveVault(currentVaultId,currentSaltB64,encrypted);
+  if(saved!==true){setStatus("bad","No se guardaron los cambios");throw new Error("La nube no confirmó el guardado.");}
+  currentEncryptedPayload=encrypted; markSynced();
 }
 
 async function refreshFromCloud(){
-  if(!currentVaultId || !unlockedKey) return;
-
+  if(!currentVaultId||!unlockedKey) return;
   setStatus("busy","Actualizando…");
-
   try{
-    const vault = await getVault(currentVaultId);
-    if(!vault) throw new Error("No se encontró la bóveda.");
-
-    state = await decryptState(unlockedKey,{iv:vault.iv,data:vault.data});
-    currentSaltB64 = vault.salt;
-    currentEncryptedPayload = {iv:vault.iv,data:vault.data};
-
-    renderApp();
-    markSynced(vault.updated_at);
-  }catch(error){
-    setStatus("bad","Error al actualizar");
-    alert("No se pudo actualizar desde la nube.");
-  }
+    const vault=await getVault(currentVaultId);
+    if(!vault) throw new Error();
+    state=await decryptState(unlockedKey,{iv:vault.iv,data:vault.data});
+    currentSaltB64=vault.salt; currentEncryptedPayload={iv:vault.iv,data:vault.data};
+    renderApp(); markSynced(vault.updated_at);
+  }catch{setStatus("bad","Error al actualizar");alert("No se pudo actualizar desde la nube.");}
 }
 
 function markSynced(timestamp=null){
-  const date = timestamp ? new Date(timestamp) : new Date();
+  const d=timestamp?new Date(timestamp):new Date();
   setStatus("ok","Sincronizado");
-  document.getElementById("lastSync").textContent =
-    "Última sincronización: " +
-    date.toLocaleString("es-CL",{dateStyle:"short",timeStyle:"short"});
+  document.getElementById("lastSync").textContent="Última sincronización: "+d.toLocaleString("es-CL",{dateStyle:"short",timeStyle:"short"});
 }
-
-function money(value){
-  return new Intl.NumberFormat(
-    "es-CL",
-    {style:"currency",currency:"CLP",maximumFractionDigits:0}
-  ).format(Number(value)||0);
-}
-
-function escapeHtml(text=""){
-  return String(text).replace(/[&<>"']/g,char=>({
-    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
-  }[char]));
-}
-
-function safeUrl(url=""){
-  try{
-    const parsed = new URL(url);
-    return (parsed.protocol==="http:" || parsed.protocol==="https:") ? parsed.href : "#";
-  }catch{
-    return "#";
-  }
-}
+function money(v){return new Intl.NumberFormat("es-CL",{style:"currency",currency:"CLP",maximumFractionDigits:0}).format(Number(v)||0);}
+function escapeHtml(t=""){return String(t).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]));}
+function safeUrl(u=""){try{const p=new URL(u);return (p.protocol==="http:"||p.protocol==="https:")?p.href:"#";}catch{return "#";}}
 
 function renderApp(){
-  document.getElementById("budget").value = state.budget || "";
-  document.getElementById("globalNotes").value = state.globalNotes || "";
-
-  const tbody = document.getElementById("giftRows");
-  tbody.innerHTML = "";
-
-  let estimated = 0;
-  let bought = 0;
-
-  state.gifts.forEach((gift,index)=>{
-    const chosen = Number(gift.real) || Number(gift.estimated) || 0;
-    estimated += chosen;
-    if(gift.status==="Comprado") bought += chosen;
-
-    const tr = document.createElement("tr");
-    const priorityClass = (gift.priority || "Media").toLowerCase();
-
-    tr.innerHTML = `
-      <td><strong>${escapeHtml(gift.name)}</strong></td>
-      <td>
-        ${money(chosen)}
-        <div class="small">${gift.real ? "real" : "estimado"}</div>
-      </td>
-      <td><span class="pill ${priorityClass}">${escapeHtml(gift.priority)}</span></td>
-      <td><span class="pill">${escapeHtml(gift.status)}</span></td>
-      <td>
-        ${gift.link ? `<a href="${safeUrl(gift.link)}" target="_blank" rel="noopener">Abrir link</a>` : ""}
-        ${gift.notes ? `<div class="small" style="margin-top:5px">${escapeHtml(gift.notes)}</div>` : ""}
-      </td>
-      <td>
-        <div class="actions" style="margin-top:0">
-          <button class="secondary" onclick="editGift(${index})">Editar</button>
-          <button class="danger" onclick="removeGift(${index})">Eliminar</button>
-        </div>
-      </td>
-    `;
-
+  document.getElementById("budget").value=state.budget||"";
+  document.getElementById("globalNotes").value=state.globalNotes||"";
+  const tbody=document.getElementById("giftRows");tbody.innerHTML="";
+  let estimated=0,bought=0;
+  state.gifts.forEach((g,i)=>{
+    const chosen=Number(g.real)||Number(g.estimated)||0;
+    estimated+=chosen;if(g.status==="Comprado") bought+=chosen;
+    const tr=document.createElement("tr"), pc=(g.priority||"Media").toLowerCase();
+    tr.innerHTML=`
+      <td><strong>${escapeHtml(g.name)}</strong></td>
+      <td>${money(chosen)}<div class="small">${g.real?"real":"estimado"}</div></td>
+      <td><span class="pill ${pc}">${escapeHtml(g.priority)}</span></td>
+      <td><span class="pill">${escapeHtml(g.status)}</span></td>
+      <td>${g.link?`<a href="${safeUrl(g.link)}" target="_blank" rel="noopener">Abrir link</a>`:""}${g.notes?`<div class="small" style="margin-top:5px">${escapeHtml(g.notes)}</div>`:""}</td>
+      <td><div class="actions" style="margin-top:0"><button class="secondary" onclick="editGift(${i})">Editar</button><button class="danger" onclick="removeGift(${i})">Eliminar</button></div></td>`;
     tbody.appendChild(tr);
   });
-
   document.getElementById("emptyState").classList.toggle("hidden",state.gifts.length>0);
-  document.getElementById("stBudget").textContent = money(state.budget);
-  document.getElementById("stEstimated").textContent = money(estimated);
-  document.getElementById("stBought").textContent = money(bought);
-  document.getElementById("stRemaining").textContent = money(Math.max(estimated-bought,0));
+  document.getElementById("stBudget").textContent=money(state.budget);
+  document.getElementById("stEstimated").textContent=money(estimated);
+  document.getElementById("stBought").textContent=money(bought);
+  document.getElementById("stRemaining").textContent=money(Math.max(estimated-bought,0));
 }
 
 async function saveGeneral(){
-  const previous = JSON.stringify(state);
-
-  state.budget = Number(document.getElementById("budget").value)||0;
-  state.globalNotes = document.getElementById("globalNotes").value.trim();
-
-  try{
-    await persistCloud();
-    renderApp();
-  }catch(error){
-    state = JSON.parse(previous);
-    renderApp();
-    alert("No se pudo guardar el presupuesto.");
-  }
+  const prev=JSON.stringify(state);
+  state.budget=Number(document.getElementById("budget").value)||0;
+  state.globalNotes=document.getElementById("globalNotes").value.trim();
+  try{await persistCloud();renderApp();}catch{state=JSON.parse(prev);renderApp();alert("No se pudo guardar el presupuesto.");}
 }
-
 function getGiftFormData(){
   return {
     name:document.getElementById("giftName").value.trim(),
@@ -724,155 +417,65 @@ function getGiftFormData(){
     notes:document.getElementById("giftNotes").value.trim()
   };
 }
-
 async function saveGift(){
-  const gift = getGiftFormData();
-
-  if(!gift.name){
-    alert("Ponle un nombre al regalo.");
-    return;
-  }
-
-  const previous = JSON.stringify(state);
-
-  if(editingGiftIndex === null){
-    state.gifts.push({
-      ...gift,
-      addedAt:new Date().toISOString()
-    });
-  }else{
-    state.gifts[editingGiftIndex] = {
-      ...state.gifts[editingGiftIndex],
-      ...gift,
-      editedAt:new Date().toISOString()
-    };
-  }
-
-  try{
-    await persistCloud();
-    clearGiftForm();
-    renderApp();
-  }catch(error){
-    state = JSON.parse(previous);
-    renderApp();
-    alert("No se pudo guardar el regalo.");
-  }
+  const gift=getGiftFormData();if(!gift.name){alert("Ponle un nombre al regalo.");return;}
+  const prev=JSON.stringify(state);
+  if(editingGiftIndex===null) state.gifts.push({...gift,addedAt:new Date().toISOString()});
+  else state.gifts[editingGiftIndex]={...state.gifts[editingGiftIndex],...gift,editedAt:new Date().toISOString()};
+  try{await persistCloud();clearGiftForm();renderApp();}catch{state=JSON.parse(prev);renderApp();alert("No se pudo guardar el regalo.");}
 }
-
-function editGift(index){
-  const gift = state.gifts[index];
-  editingGiftIndex = index;
-
-  document.getElementById("giftName").value = gift.name || "";
-  document.getElementById("giftEst").value = gift.estimated || "";
-  document.getElementById("giftReal").value = gift.real || "";
-  document.getElementById("giftPriority").value = gift.priority || "Media";
-  document.getElementById("giftStatus").value = gift.status || "Idea";
-  document.getElementById("giftLink").value = gift.link || "";
-  document.getElementById("giftNotes").value = gift.notes || "";
-
-  document.getElementById("giftFormTitle").textContent = "✏️ Editar regalo";
-  document.getElementById("giftSaveBtn").textContent = "Guardar cambios";
+function editGift(i){
+  const g=state.gifts[i];editingGiftIndex=i;
+  document.getElementById("giftName").value=g.name||"";
+  document.getElementById("giftEst").value=g.estimated||"";
+  document.getElementById("giftReal").value=g.real||"";
+  document.getElementById("giftPriority").value=g.priority||"Media";
+  document.getElementById("giftStatus").value=g.status||"Idea";
+  document.getElementById("giftLink").value=g.link||"";
+  document.getElementById("giftNotes").value=g.notes||"";
+  document.getElementById("giftFormTitle").textContent="✏️ Editar regalo";
+  document.getElementById("giftSaveBtn").textContent="Guardar cambios";
   document.getElementById("cancelEditBtn").classList.remove("hidden");
-
   document.getElementById("giftFormTitle").scrollIntoView({behavior:"smooth",block:"start"});
 }
-
-function cancelGiftEdit(){
-  clearGiftForm();
-}
-
+function cancelGiftEdit(){clearGiftForm();}
 function clearGiftForm(){
-  editingGiftIndex = null;
-
-  ["giftName","giftEst","giftReal","giftLink","giftNotes"].forEach(id => {
-    document.getElementById(id).value="";
-  });
-
+  editingGiftIndex=null;
+  ["giftName","giftEst","giftReal","giftLink","giftNotes"].forEach(id=>document.getElementById(id).value="");
   document.getElementById("giftPriority").value="Media";
   document.getElementById("giftStatus").value="Idea";
   document.getElementById("giftFormTitle").textContent="➕ Agregar regalo / idea";
   document.getElementById("giftSaveBtn").textContent="Agregar a la lista";
   document.getElementById("cancelEditBtn").classList.add("hidden");
 }
-
-async function removeGift(index){
+async function removeGift(i){
   if(!confirm("¿Eliminar este regalo de la lista?")) return;
-
-  const previous = JSON.stringify(state);
-  state.gifts.splice(index,1);
-
-  try{
-    await persistCloud();
-    if(editingGiftIndex === index) clearGiftForm();
-    renderApp();
-  }catch(error){
-    state = JSON.parse(previous);
-    renderApp();
-    alert("No se pudo eliminar el regalo.");
-  }
+  const prev=JSON.stringify(state);state.gifts.splice(i,1);
+  try{await persistCloud();if(editingGiftIndex===i)clearGiftForm();renderApp();}catch{state=JSON.parse(prev);renderApp();alert("No se pudo eliminar el regalo.");}
 }
-
 function exportEncryptedBackup(){
-  if(!currentVaultId || !currentSaltB64 || !currentEncryptedPayload) return;
-
-  const backup = {
-    version:3,
-    vault_id:currentVaultId,
-    salt:currentSaltB64,
-    iv:currentEncryptedPayload.iv,
-    data:currentEncryptedPayload.data,
-    exported_at:new Date().toISOString()
-  };
-
-  const blob = new Blob([JSON.stringify(backup,null,2)],{type:"application/json"});
-  const url = URL.createObjectURL(blob);
-  const anchor = document.createElement("a");
-
-  anchor.href = url;
-  anchor.download = "Nubecita_22_Primaveras_Backup_Cifrado.json";
-  anchor.click();
-
-  URL.revokeObjectURL(url);
+  if(!currentVaultId||!currentSaltB64||!currentEncryptedPayload)return;
+  const backup={version:4,vault_id:currentVaultId,salt:currentSaltB64,iv:currentEncryptedPayload.iv,data:currentEncryptedPayload.data,exported_at:new Date().toISOString()};
+  const blob=new Blob([JSON.stringify(backup,null,2)],{type:"application/json"});
+  const url=URL.createObjectURL(blob),a=document.createElement("a");
+  a.href=url;a.download="Nubecita_22_Primaveras_Backup_Cifrado.json";a.click();URL.revokeObjectURL(url);
 }
-
 function lockVault(){
-  unlockedKey = null;
-  currentVaultId = null;
-  currentSaltB64 = null;
-  currentEncryptedPayload = null;
-  state = null;
-  editingGiftIndex = null;
-  setStatus("ok","Bóveda en la nube");
-  show("unlock");
+  unlockedKey=null;currentVaultId=null;currentSaltB64=null;currentEncryptedPayload=null;state=null;editingGiftIndex=null;
+  setStatus("ok","Bóveda en la nube");show("unlock");
 }
-
 async function init(){
   setStatus("busy","Comprobando nube…");
-
   try{
-    const exists = await vaultExists();
-
-    if(exists){
-      setStatus("ok","Bóveda disponible");
-      show("unlock");
-    }else{
-      setStatus("ok","Lista para configurar");
-      show("setup");
-    }
-  }catch(error){
-    console.error(error);
+    const exists=await vaultExists();
+    if(exists){setStatus("ok","Bóveda disponible");show("unlock");}
+    else{setStatus("ok","Lista para configurar");show("setup");}
+  }catch(e){
     setStatus("bad","No se pudo conectar con Supabase");
-    document.getElementById("loading").innerHTML = `
-      <h2>⚠️ No se pudo conectar</h2>
-      <p>Revisa la configuración de Supabase o vuelve a cargar la página.</p>
-      <div class="error">${escapeHtml(error.message || "")}</div>
-    `;
+    document.getElementById("loading").innerHTML=`<h2>⚠️ No se pudo conectar</h2><p>Revisa la configuración de Supabase o vuelve a cargar la página.</p><div class="error">${escapeHtml(e.message||"")}</div>`;
   }
 }
-
 init();
 </script>
-
 </body>
 </html>
